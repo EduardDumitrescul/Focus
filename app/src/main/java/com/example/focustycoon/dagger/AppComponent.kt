@@ -1,7 +1,7 @@
 package com.example.focustycoon.dagger
 
 import android.app.Application
-import com.example.focustycoon.FocusZone.FocusFragment
+import com.example.focustycoon.focus.FocusFragment
 import com.example.focustycoon.MainActivity
 import dagger.BindsInstance
 import dagger.Component

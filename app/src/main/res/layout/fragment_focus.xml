@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:circular="http://schemas.android.com/apk/res-auto">
     <data>
 
     </data>
@@ -9,12 +9,15 @@
         android:layout_height="match_parent">
 
         <com.example.circularseekbar.CircularSeekBar
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:padding="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            circular:trackThickness="24dp"
+            circular:thumbThickness="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

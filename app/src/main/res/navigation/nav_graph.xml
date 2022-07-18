@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/focusFragment"
-        android:name="com.example.focustycoon.FocusFragment"
+        android:name="com.example.focustycoon.FocusZone.FocusFragment"
         android:label="FocusFragment" />
 </navigation>

@@ -1,6 +1,7 @@
 package com.example.focustycoon.dagger
 
 import android.app.Application
+import com.example.focustycoon.FocusZone.FocusFragment
 import com.example.focustycoon.MainActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -12,4 +13,5 @@ interface AppComponent {
         fun create(@BindsInstance application: Application): AppComponent
     }
     fun inject(activity: MainActivity)
+    fun inject(fragment: FocusFragment)
 }

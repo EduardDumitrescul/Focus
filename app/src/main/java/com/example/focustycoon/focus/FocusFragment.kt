@@ -2,6 +2,8 @@ package com.example.focustycoon.focus
 
 import android.content.Context
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import com.example.circularseekbar.CircularSeekBar
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.FragmentFocusBinding
+import java.util.*
 import javax.inject.Inject
 
 private const val TAG = "FocusFragment"
@@ -32,7 +35,9 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_focus, container, false)
+        binding.fragment = this
         binding.viewmodel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -42,16 +47,18 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         super.onViewCreated(view, savedInstanceState)
         binding.circularSeekBar.setOnChangeListener(this)
         binding.viewmodel?.timeLeftLiveData?.observe(viewLifecycleOwner) {
-            setTimerValue(it.toInt())
+            setTimerValue(it)
         }
     }
 
-    private fun setTimerValue(value: Int) {
-        val hours: Int = value / 3600
-        val minutes: Int = value % 3600 / 60
-        val seconds: Int = value % 60
+    private fun setTimerValue(value: Long) {
+        Log.d(TAG, "setTimerValue() $value")
 
-        var string: String = ""
+        val hours = value / 1000 / 3600
+        val minutes = value / 1000 % 3600 / 60
+        val seconds = value / 1000 % 60
+
+        var string = ""
 
         if(hours > 0) {
             string = hours.toString() + "h "
@@ -64,7 +71,41 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.textView.text = string
     }
 
+    private var timer: CountDownTimer? = null
+
+    fun startTimer() {
+        assert(binding.viewmodel != null)
+        assert(binding.viewmodel!!.timeLeftLiveData.value != null)
+
+        viewModel.startTime = System.currentTimeMillis()
+        viewModel.duration = viewModel.timeLeftLiveData.value!! / 300000
+        Log.d(TAG, "startTimer() ${viewModel.duration}")
+        binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_LOCKED)
+        binding.circularSeekBar.setIsThumbVisible(false)
+
+        Log.d(TAG, "timerStart()")
+
+        timer?.cancel()
+        /** modify duration multiplier (should pe 300 * 1000) **/
+        timer = object: CountDownTimer(binding.viewmodel!!.duration * 3000, 1000){
+            override fun onTick(millisUntilFinished: Long) {
+                binding.viewmodel!!.updateTime()
+                viewModel.timeLeftLiveData.value?.let {
+                    Log.d(TAG, it.toString())
+                    binding.circularSeekBar.setValue(it.toFloat() / 1000 / 300)
+                }
+            }
+
+            override fun onFinish() {
+                binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
+                binding.circularSeekBar.setIsThumbVisible(true)
+                viewModel.taskFinished()
+                Log.d(TAG, "timer finished()")
+            }
+        }.start()
+    }
+
     override fun onValueChangeDetected(value: Int) {
-        viewModel.setTimeLeft(60 * value)
+        viewModel.setTimeLeft(300L * 1000L * value)
     }
 }

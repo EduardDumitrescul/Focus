@@ -5,8 +5,10 @@ import com.example.focustycoon.focus.FocusFragment
 import com.example.focustycoon.MainActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
-@Component
+@Singleton
+@Component(modules = [AppModule::class, StorageModule::class])
 interface AppComponent {
     @Component.Factory
     interface Factory {

@@ -73,7 +73,17 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
     private var timer: CountDownTimer? = null
 
+    private var timerIsRunning: Boolean = false
+
     fun startTimer() {
+        if(timerIsRunning) {
+            stopTimer()
+            return
+        }
+
+        timerIsRunning = true
+        binding.button.text = "Cancel"
+
         assert(binding.viewmodel != null)
         assert(binding.viewmodel!!.timeLeftLiveData.value != null)
 
@@ -103,6 +113,14 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
                 Log.d(TAG, "timer finished()")
             }
         }.start()
+
+    }
+    private fun stopTimer() {
+        timer?.cancel()
+        binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
+        binding.circularSeekBar.setIsThumbVisible(true)
+        timerIsRunning = false
+        binding.button.text = "Focus"
     }
 
     override fun onValueChangeDetected(value: Int) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circular="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circular="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
     <data>
         <variable
             name="fragment"
@@ -48,14 +48,15 @@
             circular:layout_constraintStart_toStartOf="parent"
             circular:layout_constraintTop_toBottomOf="@+id/circularSeekBar" />
 
-        <TextView
+        <include
             android:id="@+id/tokenAmount"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:text="@{String.valueOf(viewmodel.tokenAmount)}"
+            android:layout_height="36dp"
+            android:layout_marginEnd="4dp"
+            layout="@layout/container_token_amount"
             android:textSize="20sp"
+            bind:textString="@{String.valueOf(viewmodel.tokenAmount)}"
+
             circular:layout_constraintEnd_toEndOf="parent"
             circular:layout_constraintTop_toTopOf="parent" />
 

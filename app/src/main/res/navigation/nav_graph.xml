@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/focusFragment"
         android:name="com.example.focustycoon.focus.FocusFragment"
-        android:label="FocusFragment" />
+        android:label="FocusFragment" >
+        <action
+            android:id="@+id/openUpgradeDialog"
+            app:destination="@id/upgradeDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/upgradeDialogFragment"
+        android:name="com.example.focustycoon.focus.upgrade.UpgradeDialogFragment"
+        android:label="UpgradeDialogFragment" />
 </navigation>

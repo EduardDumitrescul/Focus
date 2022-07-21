@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavHostController
+import androidx.navigation.fragment.findNavController
 import com.example.circularseekbar.CircularSeekBar
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
@@ -121,6 +123,10 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.circularSeekBar.setIsThumbVisible(true)
         timerIsRunning = false
         binding.button.text = "Focus"
+    }
+
+    fun openUpgradeDialog() {
+        findNavController().navigate(R.id.openUpgradeDialog)
     }
 
     override fun onValueChangeDetected(value: Int) {

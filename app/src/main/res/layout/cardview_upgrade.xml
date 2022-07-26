@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="4dp"
-    android:paddingHorizontal="4dp"
-    android:paddingVertical="2dp">
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/upgradeButton"
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UP"
-        android:gravity="center"
-        android:layout_alignParentEnd="true"/>
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="4dp"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="2dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/upgradeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UP"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:mipmap/sym_def_app_icon" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/nameTextView"
+                android:orientation="horizontal">
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UPGRADE"/>
-                <TextView
-                    android:id="@+id/levelTextView"
+                    app:srcCompat="@android:mipmap/sym_def_app_icon" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="level"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/nameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UPGRADE"/>
+                    <TextView
+                        android:id="@+id/levelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="level"/>
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/infoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a longer explanation"/>
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/infoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="a longer explanation"/>
-
-    </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

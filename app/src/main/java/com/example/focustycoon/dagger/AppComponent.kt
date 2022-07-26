@@ -1,8 +1,10 @@
 package com.example.focustycoon.dagger
 
 import android.app.Application
+import androidx.fragment.app.DialogFragment
 import com.example.focustycoon.focus.FocusFragment
 import com.example.focustycoon.MainActivity
+import com.example.focustycoon.focus.upgrade.UpgradeDialogFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,4 +18,5 @@ interface AppComponent {
     }
     fun inject(activity: MainActivity)
     fun inject(fragment: FocusFragment)
+    fun inject(dialogFragment: UpgradeDialogFragment)
 }

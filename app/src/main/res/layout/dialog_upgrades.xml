@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
     <data>
-
+        <variable
+            name="viewmodel"
+            type="com.example.focustycoon.focus.upgrade.UpgradeViewModel" />
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -17,7 +20,7 @@
         <include layout="@layout/cardview_upgrade"
             android:id="@+id/upgradeEfficiency"/>
         <include layout="@layout/cardview_upgrade"
-            android:id="@+id/upgradeDuration"/>
+            android:id="@+id/upgradeCapacity"/>
 
     </LinearLayout>
 </layout>

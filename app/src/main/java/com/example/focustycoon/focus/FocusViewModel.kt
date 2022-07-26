@@ -12,12 +12,9 @@ private const val TAG = "FocusViewModel"
 class FocusViewModel @Inject constructor(private val userDataSource: UserDataSource): ViewModel() {
 
     var tokenAmount: LiveData<Float> = userDataSource.getCurrentTokens()
-    var tokenConversionRate: LiveData<Float> = userDataSource.getConversionRate()
 
     fun taskFinished() {
-        tokenConversionRate.value?.let {
-            userDataSource.addTokens(it * duration)
-        }
+        userDataSource.addTokens(duration)
     }
 
     /** in milliseconds **/

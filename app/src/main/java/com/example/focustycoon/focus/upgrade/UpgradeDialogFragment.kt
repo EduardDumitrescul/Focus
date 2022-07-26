@@ -83,6 +83,6 @@ class UpgradeDialogFragment: DialogFragment() {
             levelTextView.text = "level $it"
         }
 
-        infoTextView.text = "The maximum timer duration is -1 minutes"
+        infoTextView.text = "The maximum timer duration is ${viewModel.getMaxCapacity()} minutes"
     }
 }

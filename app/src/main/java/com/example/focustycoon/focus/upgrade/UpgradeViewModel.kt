@@ -13,6 +13,8 @@ class UpgradeViewModel @Inject constructor(private val userDataSource: UserDataS
 
     fun getConversionRate() = userDataSource.getConversionRate()
 
+    fun getMaxCapacity() = userDataSource.getMaxCapacity()
+
     fun upgradeEfficiency() {
         Log.d(TAG, "upgradeEfficiency()")
         userDataSource.upgradeEfficiency()

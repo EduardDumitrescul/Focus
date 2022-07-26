@@ -8,7 +8,7 @@
 
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/cherry_200</item>
+        <item name="colorSecondary">@color/cherry_300</item>
         <item name="colorSecondaryVariant">@color/cherry_500</item>
         <item name="colorOnSecondary">@color/black</item>
 
@@ -17,7 +17,7 @@
         <item name="colorErrorContainer">@color/cherry_300</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <item name="android:colorBackground">@color/purple_50</item>
         <!-- Customize your theme here. -->
     </style>

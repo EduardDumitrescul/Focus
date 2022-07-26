@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CircularSeekBarStyle">
+        <item name="trackColor">?attr/colorSecondary</item>
+        <item name="trackColorActive">?attr/colorPrimary</item>
+        <item name="thumbColor">?attr/colorPrimaryVariant</item>
+
+    </style>
+</resources>

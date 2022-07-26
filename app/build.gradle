@@ -55,6 +55,6 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.40'
     kapt 'com.google.dagger:dagger-android-processor:2.40'
 
-    implementation 'com.github.EduardDumitrescul:CircularSeekBar:1.0.0.fix2'
+    implementation 'com.github.EduardDumitrescul:CircularSeekBar:1.0.0.fix3'
 
 }

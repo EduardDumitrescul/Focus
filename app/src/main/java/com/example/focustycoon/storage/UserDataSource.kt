@@ -8,7 +8,6 @@ import javax.inject.Inject
 import kotlin.math.pow
 
 private const val TOKEN_AMOUNT_KEY = "token_amount"
-private const val MAX_DURATION_KEY = "max_duration"
 private const val EFFICIENCY_LEVEL_KEY = "efficiency_level"
 private const val DURATION_LEVEL_KEY = "duration_level"
 
@@ -23,7 +22,6 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
     }
 
     var tokenAmount: MutableLiveData<Float> = MutableLiveData(sharedPreferences.getFloat(TOKEN_AMOUNT_KEY, 11110f))
-    var maxDuration: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(MAX_DURATION_KEY, 12))
     var efficiencyLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(EFFICIENCY_LEVEL_KEY, 1))
     var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(DURATION_LEVEL_KEY, 1))
 
@@ -37,8 +35,22 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
     }
 
 
-    override fun getMaxDuration(): LiveData<Int> {
-        return maxDuration
+    override fun getMaxCapacity(): Int {
+        assert(capacityLevel.value != null)
+        return when(capacityLevel.value!!) {
+            1 -> 60
+            2 -> 80
+            3 -> 100
+            4 -> 120
+            5 -> 150
+            6 -> 180
+            7 -> 240
+            8 -> 300
+            9 -> 360
+            10 -> 420
+            11 -> 480
+            else -> -1
+        }
     }
 
     /** Returns the conversion rate of 5 minutes **/
@@ -102,9 +114,27 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         return capacityLevel
     }
 
+    override fun getCapacityUpgradeCost(): Float {
+        assert(capacityLevel.value != null)
+        val level = capacityLevel.value!!
+        return 2.0f.pow(level + 1) * getMaxCapacity() / 5
+    }
+
+    override fun getCapacityUpgradeCost(level: Int): Float {
+        return 2.0f.pow(level + 1) * getMaxCapacity() / 5
+    }
 
     /** Returns true if successful, false otherwise */
     override fun upgradeCapacity(): Boolean {
-        return false
+        assert(tokenAmount.value != null)
+        if(tokenAmount.value!! < getCapacityUpgradeCost()){
+            return false
+        }
+        if(capacityLevel.value == 11) {
+            return false
+        }
+        tokenAmount.value = tokenAmount.value!! - getCapacityUpgradeCost()
+        capacityLevel.value = capacityLevel.value!! + 1
+        return true
     }
 }

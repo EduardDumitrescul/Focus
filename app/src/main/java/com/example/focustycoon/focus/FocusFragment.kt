@@ -51,6 +51,9 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.viewmodel?.timeLeftLiveData?.observe(viewLifecycleOwner) {
             setTimerValue(it)
         }
+        viewModel.capacityLevelLiveData.observe(viewLifecycleOwner) {
+            binding.circularSeekBar.setMaxValue(viewModel.getMaxCapacity() / 5)
+        }
     }
 
     private fun setTimerValue(value: Long) {

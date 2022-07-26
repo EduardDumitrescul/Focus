@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 interface UserRepository {
     fun getCurrentTokens(): LiveData<Float>
     fun addTokens(duration: Long)
-    fun getMaxDuration(): LiveData<Int>
     fun getConversionRate(): Float
     fun getConversionRate(level: Int): Float
 
@@ -15,7 +14,8 @@ interface UserRepository {
     fun upgradeEfficiency(): Boolean
 
     fun getCapacityLevel(): LiveData<Int>
-//    fun getCapacityUpgradeCost(): Float
-//    fun getCapacityUpgradeCost(level: Int): Float
+    fun getMaxCapacity(): Int
+    fun getCapacityUpgradeCost(): Float
+    fun getCapacityUpgradeCost(level: Int): Float
     fun upgradeCapacity(): Boolean
 }

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BaseObservable
 import androidx.databinding.DataBindingUtil
@@ -64,12 +65,14 @@ class UpgradeDialogFragment: DialogFragment() {
         val nameTextView: TextView = upgrade.nameTextView
         val levelTextView: TextView = upgrade.levelTextView
         val infoTextView: TextView = upgrade.infoTextView
+        val imageView: ImageView = upgrade.imageView
 
         nameTextView.text = "EFFICIENCY"
         viewModel.efficiencyLevelLiveData.value?.let {
             levelTextView.text = "level $it"
         }
         infoTextView.text = "Currently, you gain ${viewModel.getConversionRate()} tokens for every ${UserDataSource.TIME_UNIT} minutes of focused time"
+        imageView.setImageResource(R.drawable.outline_insights_24)
     }
 
     private fun updateCapacityUpgrade() {
@@ -77,6 +80,7 @@ class UpgradeDialogFragment: DialogFragment() {
         val nameTextView: TextView = upgrade.nameTextView
         val levelTextView: TextView = upgrade.levelTextView
         val infoTextView: TextView = upgrade.infoTextView
+        val imageView: ImageView = upgrade.imageView
 
         nameTextView.text = "Capacity"
         viewModel.capacityLevelLiveData.value?.let {
@@ -84,5 +88,6 @@ class UpgradeDialogFragment: DialogFragment() {
         }
 
         infoTextView.text = "The maximum timer duration is ${viewModel.getMaxCapacity()} minutes"
+        imageView.setImageResource(R.drawable.outline_psychology_24)
     }
 }

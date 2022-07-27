@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.FocusTycoon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -20,5 +20,10 @@
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <item name="android:colorBackground">@color/purple_50</item>
         <!-- Customize your theme here. -->
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent.Circular</item>
+        <item name="android:fontFamily">@font/louis_george_cafe_bold</item>
+        <item name="fontFamily">@font/louis_george_cafe_bold</item>
+        <item name="colorControlNormal">@color/purple_700</item>
     </style>
 </resources>

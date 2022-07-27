@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/add_48px.xml" value="0.1205" />
+        <entry key="app/src/main/res/drawable/baseline_psychology_20.xml" value="0.1205" />
+        <entry key="app/src/main/res/drawable/baseline_psychology_24.xml" value="0.1205" />
+        <entry key="app/src/main/res/drawable/component_exchange_48px.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/construction_48px.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/insights_48px.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/outline_psychology_20.xml" value="0.158" />
+        <entry key="app/src/main/res/drawable/outline_psychology_24.xml" value="0.158" />
+        <entry key="app/src/main/res/drawable/outline_upgrade_20.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/outline_upgrade_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/round_add_20.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/round_add_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/round_add_circle_outline_20.xml" value="0.1" />
+        <entry key="app/src/main/res/font-v26/louis_george_cafe.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/font/louis_george_cafe.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3079710144927536" />
         <entry key="app/src/main/res/layout/cardview_upgrade.xml" value="0.33" />
         <entry key="app/src/main/res/layout/container_token_amount.xml" value="0.67" />

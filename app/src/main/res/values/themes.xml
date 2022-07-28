@@ -18,12 +18,21 @@
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
-        <item name="android:colorBackground">@color/purple_50</item>
         <!-- Customize your theme here. -->
+
+        <!-- Background        -->
+        <item name="android:colorBackground">@color/purple_50</item>
+        <item name="backgroundColor">@color/purple_50</item>
+
+
 
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent.Circular</item>
         <item name="android:fontFamily">@font/louis_george_cafe_bold</item>
         <item name="fontFamily">@font/louis_george_cafe_bold</item>
         <item name="colorControlNormal">@color/purple_700</item>
+
+
+<!--        <item name="android:dialogTheme">@style/AppDialogTheme</item>-->
+<!--        <item name="android:alertDialogTheme">@style/AppDialogTheme</item>-->
     </style>
 </resources>

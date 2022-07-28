@@ -1,6 +1,8 @@
 package com.example.focustycoon.focus.upgrade
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,6 +42,8 @@ class UpgradeDialogFragment: DialogFragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         updateEfficiencyUpgrade()
         updateCapacityUpgrade()
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         return binding.root
     }
 
@@ -62,32 +66,26 @@ class UpgradeDialogFragment: DialogFragment() {
 
     private fun updateEfficiencyUpgrade() {
         val upgrade = binding.upgradeEfficiency
-        val nameTextView: TextView = upgrade.nameTextView
-        val levelTextView: TextView = upgrade.levelTextView
-        val infoTextView: TextView = upgrade.infoTextView
-        val imageView: ImageView = upgrade.imageView
 
-        nameTextView.text = "EFFICIENCY"
+        upgrade.nameTextView.text = "EFFICIENCY"
         viewModel.efficiencyLevelLiveData.value?.let {
-            levelTextView.text = "level $it"
+            upgrade.levelTextView.text = "level $it"
         }
-        infoTextView.text = "Currently, you gain ${viewModel.getConversionRate()} tokens for every ${UserDataSource.TIME_UNIT} minutes of focused time"
-        imageView.setImageResource(R.drawable.outline_insights_24)
+        upgrade.infoTextView.text = "Currently, you gain ${viewModel.getConversionRate()} tokens for every ${UserDataSource.TIME_UNIT} minutes of focused time"
+        upgrade.imageView.setImageResource(R.drawable.outline_insights_24)
+        upgrade.upgradeButton.text = "${viewModel.getEfficiencyUpgradeCost()}"
     }
 
     private fun updateCapacityUpgrade() {
         val upgrade = binding.upgradeCapacity
-        val nameTextView: TextView = upgrade.nameTextView
-        val levelTextView: TextView = upgrade.levelTextView
-        val infoTextView: TextView = upgrade.infoTextView
-        val imageView: ImageView = upgrade.imageView
 
-        nameTextView.text = "Capacity"
+        upgrade.nameTextView.text = "Capacity"
         viewModel.capacityLevelLiveData.value?.let {
-            levelTextView.text = "level $it"
+            upgrade.levelTextView.text = "level $it"
         }
 
-        infoTextView.text = "The maximum timer duration is ${viewModel.getMaxCapacity()} minutes"
-        imageView.setImageResource(R.drawable.outline_psychology_24)
+        upgrade.infoTextView.text = "The maximum timer duration is ${viewModel.getMaxCapacity()} minutes"
+        upgrade.imageView.setImageResource(R.drawable.outline_psychology_24)
+        upgrade.upgradeButton.text = "${viewModel.getCapacityUpgradeCost()}"
     }
 }

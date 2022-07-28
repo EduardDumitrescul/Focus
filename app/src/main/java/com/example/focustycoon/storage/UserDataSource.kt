@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import javax.inject.Inject
 import kotlin.math.pow
+import kotlin.math.round
 
 private const val TOKEN_AMOUNT_KEY = "token_amount"
 private const val EFFICIENCY_LEVEL_KEY = "efficiency_level"
@@ -59,13 +60,13 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         assert(efficiencyLevel.value != null)
         val level: Int = efficiencyLevel.value!!
         val rate: Float = (2.0.pow((level - 1) / 2) * (1 + 0.4 * ((level - 1) % 2))).toFloat()
-        return rate
+        return round(rate)
     }
 
     /** Returns the conversion rate of 5 minutes **/
     override fun getConversionRate(level: Int): Float {
         val rate: Float = (2.0.pow((level - 1) / 2) * (1 + 0.4 * ((level - 1) % 2))).toFloat()
-        return rate
+        return round(rate)
     }
 
     override fun getEfficiencyUpgradeCost(): Float {
@@ -79,7 +80,7 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
             coef += 1f
         }
         val price: Float = (3.0f.pow((level - 1) / 2) * coef)
-        return (BASE_COST * price)
+        return round(BASE_COST * price)
     }
 
     override fun getEfficiencyUpgradeCost(level: Int): Float {
@@ -91,7 +92,7 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
             coef += 1f
         }
         val price: Float = (3.0f.pow((level - 1) / 2) * coef)
-        return (BASE_COST * price)
+        return round(BASE_COST * price)
     }
 
     override fun getEfficiencyLevel(): LiveData<Int> {
@@ -117,11 +118,11 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
     override fun getCapacityUpgradeCost(): Float {
         assert(capacityLevel.value != null)
         val level = capacityLevel.value!!
-        return 2.0f.pow(level + 1) * getMaxCapacity() / 5
+        return round(2.0f.pow(level + 1) * getMaxCapacity() / 5)
     }
 
     override fun getCapacityUpgradeCost(level: Int): Float {
-        return 2.0f.pow(level + 1) * getMaxCapacity() / 5
+        return round(2.0f.pow(level + 1) * getMaxCapacity() / 5)
     }
 
     /** Returns true if successful, false otherwise */

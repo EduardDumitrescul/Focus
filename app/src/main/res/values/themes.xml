@@ -3,13 +3,13 @@
     <style name="Theme.FocusTycoon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_300</item>
-        <item name="colorPrimaryVariant">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_400</item>
         <item name="colorPrimaryDark">@color/purple_600</item>
 
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/cherry_300</item>
-        <item name="colorSecondaryVariant">@color/cherry_500</item>
+        <item name="colorSecondaryVariant">@color/cherry_200</item>
         <item name="colorOnSecondary">@color/black</item>
 
 

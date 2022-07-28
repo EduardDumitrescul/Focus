@@ -24,8 +24,6 @@
             circular:layout_constraintEnd_toEndOf="parent"
             circular:layout_constraintStart_toStartOf="parent"
             circular:layout_constraintTop_toTopOf="parent"
-            circular:thumbThickness="20dp"
-            circular:trackThickness="24dp"
             circular:maxValue="12"
             circular:stepSize="1"/>
 

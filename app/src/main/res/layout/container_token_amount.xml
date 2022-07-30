@@ -5,26 +5,39 @@
             name="textString"
             type="String" />
     </data>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:layout_height="36dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:paddingVertical="8dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_height="match_parent"
-            android:paddingHorizontal="8dp"
-            android:textSize="24sp"
-            tools:text="0.00"
-            android:text="@={textString}"
-            />
-
-        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:src="@drawable/coin_focus_24"/>
+            android:gravity="center_vertical|end"
+            android:background="@drawable/background_rounded_cherry">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="12dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="24sp"
+                tools:text="0.00"
+                android:text="@={textString}"
+                />
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/coin_focus_36"/>
+
+        </LinearLayout>
+    </FrameLayout>
+
 </layout>

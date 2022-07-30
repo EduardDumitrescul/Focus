@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/add_48px.xml" value="0.1205" />
+        <entry key="app/src/main/res/drawable/background_rounded_cherry.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/baseline_psychology_20.xml" value="0.1205" />
         <entry key="app/src/main/res/drawable/baseline_psychology_24.xml" value="0.1205" />
         <entry key="app/src/main/res/drawable/component_exchange_48px.xml" value="0.1" />

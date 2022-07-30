@@ -15,6 +15,7 @@ import com.example.circularseekbar.CircularSeekBar
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.FragmentFocusBinding
+import com.example.focustycoon.utils.StringConverterUtil
 import java.util.*
 import javax.inject.Inject
 
@@ -48,11 +49,15 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.circularSeekBar.setOnChangeListener(this)
-        binding.viewmodel?.timeLeftLiveData?.observe(viewLifecycleOwner) {
+        viewModel.timeLeftLiveData.observe(viewLifecycleOwner) {
             setTimerValue(it)
         }
         viewModel.capacityLevelLiveData.observe(viewLifecycleOwner) {
             binding.circularSeekBar.setMaxValue(viewModel.getMaxCapacity() / 5)
+        }
+        viewModel.tokenAmount.observe(viewLifecycleOwner) {
+            binding.tokenAmount.textString = StringConverterUtil.toString(it)
+            Log.d(TAG, StringConverterUtil.toString(it))
         }
     }
 

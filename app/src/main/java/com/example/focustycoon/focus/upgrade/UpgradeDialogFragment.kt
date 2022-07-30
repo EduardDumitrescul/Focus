@@ -17,6 +17,7 @@ import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.DialogUpgradesBinding
 import com.example.focustycoon.storage.UserDataSource
+import com.example.focustycoon.utils.StringConverterUtil
 import javax.inject.Inject
 
 private const val TAG = "UpgradeDialogFragment"
@@ -63,7 +64,7 @@ class UpgradeDialogFragment: DialogFragment() {
             viewModel.upgradeCapacity()
         }
         viewModel.tokenAmountLiveData.observe(viewLifecycleOwner) {
-            binding.tokenAmount.textView.text = it.toString()
+            binding.tokenAmount.textString = StringConverterUtil.toString(it)
         }
     }
 
@@ -74,9 +75,11 @@ class UpgradeDialogFragment: DialogFragment() {
         viewModel.efficiencyLevelLiveData.value?.let {
             upgrade.levelTextView.text = "level $it"
         }
-        upgrade.infoTextView.text = "Currently, you gain ${viewModel.getConversionRate()} tokens for every ${UserDataSource.TIME_UNIT} minutes of focused time"
+        val stringConvRate = StringConverterUtil.toString(viewModel.getConversionRate())
+        upgrade.infoTextView.text = "Currently, you gain $stringConvRate tokens for every ${UserDataSource.TIME_UNIT} minutes of focused time"
         upgrade.imageView.setImageResource(R.drawable.outline_insights_24)
-        upgrade.upgradeButton.text = "${viewModel.getEfficiencyUpgradeCost()}"
+        val stringCost = StringConverterUtil.toString(viewModel.getEfficiencyUpgradeCost())
+        upgrade.upgradeButton.text = stringCost
     }
 
     private fun updateCapacityUpgrade() {
@@ -87,13 +90,15 @@ class UpgradeDialogFragment: DialogFragment() {
             upgrade.levelTextView.text = "level $it"
         }
 
-        upgrade.infoTextView.text = "The maximum timer duration is ${viewModel.getMaxCapacity()} minutes"
+        val stringMaxCap = StringConverterUtil.toString(viewModel.getMaxCapacity())
+        upgrade.infoTextView.text = "The maximum timer duration is $stringMaxCap minutes"
         upgrade.imageView.setImageResource(R.drawable.outline_psychology_24)
         if(viewModel.capacityLevelLiveData.value == viewModel.getMaxCapacityLevel()) {
             upgrade.upgradeButton.text = "Max"
         }
         else {
-            upgrade.upgradeButton.text = "${viewModel.getCapacityUpgradeCost()}"
+            val stringCost = StringConverterUtil.toString(viewModel.getCapacityUpgradeCost())
+            upgrade.upgradeButton.text = stringCost
         }
     }
 }

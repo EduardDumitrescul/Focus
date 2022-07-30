@@ -20,6 +20,7 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
     companion object {
         /** The smallest unit of time **/
         const val TIME_UNIT: Int = 5
+        const val MAX_CAPACITY_LEVEL: Int = 11
     }
 
     var tokenAmount: MutableLiveData<Float> = MutableLiveData(sharedPreferences.getFloat(TOKEN_AMOUNT_KEY, 199999990f))

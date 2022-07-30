@@ -27,4 +27,6 @@ class UpgradeViewModel @Inject constructor(private val userDataSource: UserDataS
     fun upgradeCapacity() {
         userDataSource.upgradeCapacity()
     }
+
+    fun getMaxCapacityLevel() = UserDataSource.MAX_CAPACITY_LEVEL
 }

@@ -89,6 +89,11 @@ class UpgradeDialogFragment: DialogFragment() {
 
         upgrade.infoTextView.text = "The maximum timer duration is ${viewModel.getMaxCapacity()} minutes"
         upgrade.imageView.setImageResource(R.drawable.outline_psychology_24)
-        upgrade.upgradeButton.text = "${viewModel.getCapacityUpgradeCost()}"
+        if(viewModel.capacityLevelLiveData.value == viewModel.getMaxCapacityLevel()) {
+            upgrade.upgradeButton.text = "Max"
+        }
+        else {
+            upgrade.upgradeButton.text = "${viewModel.getCapacityUpgradeCost()}"
+        }
     }
 }

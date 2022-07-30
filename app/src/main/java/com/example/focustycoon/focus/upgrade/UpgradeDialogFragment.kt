@@ -62,6 +62,9 @@ class UpgradeDialogFragment: DialogFragment() {
         binding.upgradeCapacity.upgradeButton.setOnClickListener {
             viewModel.upgradeCapacity()
         }
+        viewModel.tokenAmountLiveData.observe(viewLifecycleOwner) {
+            binding.tokenAmount.textView.text = it.toString()
+        }
     }
 
     private fun updateEfficiencyUpgrade() {

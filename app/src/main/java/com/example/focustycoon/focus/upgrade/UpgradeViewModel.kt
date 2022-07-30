@@ -10,6 +10,7 @@ private const val TAG = "UpgradeViewModel"
 class UpgradeViewModel @Inject constructor(private val userDataSource: UserDataSource): ViewModel() {
     var efficiencyLevelLiveData = userDataSource.getEfficiencyLevel()
     var capacityLevelLiveData = userDataSource.getCapacityLevel()
+    var tokenAmountLiveData = userDataSource.tokenAmount
 
     fun getConversionRate() = userDataSource.getConversionRate()
 

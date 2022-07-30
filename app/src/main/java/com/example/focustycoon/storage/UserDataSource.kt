@@ -22,7 +22,7 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         const val TIME_UNIT: Int = 5
     }
 
-    var tokenAmount: MutableLiveData<Float> = MutableLiveData(sharedPreferences.getFloat(TOKEN_AMOUNT_KEY, 11110f))
+    var tokenAmount: MutableLiveData<Float> = MutableLiveData(sharedPreferences.getFloat(TOKEN_AMOUNT_KEY, 199999990f))
     var efficiencyLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(EFFICIENCY_LEVEL_KEY, 1))
     var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(DURATION_LEVEL_KEY, 1))
 
@@ -79,7 +79,7 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         else if((level - 1) % 3 == 2) {
             coef += 1f
         }
-        val price: Float = (3.0f.pow((level - 1) / 2) * coef)
+        val price: Float = (3.0f.pow((level - 1) / 3) * coef)
         return round(BASE_COST * price)
     }
 
@@ -91,7 +91,7 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         else if((level - 1) % 3 == 2) {
             coef += 1f
         }
-        val price: Float = (3.0f.pow((level - 1) / 2) * coef)
+        val price: Float = (3.0f.pow((level - 1) / 3) * coef)
         return round(BASE_COST * price)
     }
 

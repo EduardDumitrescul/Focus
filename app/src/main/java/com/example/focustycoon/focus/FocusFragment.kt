@@ -9,13 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavHostController
 import androidx.navigation.fragment.findNavController
 import com.example.circularseekbar.CircularSeekBar
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.FragmentFocusBinding
+import com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment
 import com.example.focustycoon.utils.StringConverterUtil
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.*
 import javax.inject.Inject
 
@@ -32,6 +35,16 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         (requireActivity().application as MainApplication).appComponent.inject(this)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setFragmentResultListener(ConfirmStopDialogFragment.KEY) { requestKey, bundle ->
+            val confirm: Boolean = bundle.getBoolean(ConfirmStopDialogFragment.CONFIRM_KEY)
+            if(confirm)
+                stopTimer()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,6 +54,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.fragment = this
         binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
         return binding.root
     }
 
@@ -82,17 +96,36 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     }
 
     private var timer: CountDownTimer? = null
+    private var cancelTimer: CountDownTimer? = null
 
     private var timerIsRunning: Boolean = false
+    private var shouldShowDialog: Boolean = false
 
     fun startTimer() {
         if(timerIsRunning) {
-            stopTimer()
+            tryStoppingTimer()
             return
         }
 
         timerIsRunning = true
         binding.button.text = "Cancel"
+
+        cancelTimer?.cancel()
+        shouldShowDialog = false
+        cancelTimer = object: CountDownTimer(5000, 1000) {
+            var current = 5
+            override fun onTick(millisUntilFinished: Long) {
+                Log.d(TAG, "cancel timer")
+                binding.button.text = "Cancel($current)"
+                current --
+            }
+
+            override fun onFinish() {
+                binding.button.text = "Cancel"
+                shouldShowDialog = true
+            }
+
+        }.start()
 
         assert(binding.viewmodel != null)
         assert(binding.viewmodel!!.timeLeftLiveData.value != null)
@@ -125,7 +158,18 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         }.start()
 
     }
+    private fun tryStoppingTimer() {
+        if(!shouldShowDialog) {
+            cancelTimer?.cancel()
+            stopTimer()
+        }
+        else {
+            findNavController().navigate(R.id.openConfirmStopDialog)
+        }
+    }
+
     private fun stopTimer() {
+        Log.d(TAG, "stopTimer()")
         timer?.cancel()
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
         binding.circularSeekBar.setIsThumbVisible(true)

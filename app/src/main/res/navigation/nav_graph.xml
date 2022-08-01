@@ -11,9 +11,16 @@
         <action
             android:id="@+id/openUpgradeDialog"
             app:destination="@id/upgradeDialogFragment" />
+        <action
+            android:id="@+id/openConfirmStopDialog"
+            app:destination="@id/confirmStopDialogFragment" />
     </fragment>
     <dialog
         android:id="@+id/upgradeDialogFragment"
         android:name="com.example.focustycoon.focus.upgrade.UpgradeDialogFragment"
         android:label="UpgradeDialogFragment" />
+    <dialog
+        android:id="@+id/confirmStopDialogFragment"
+        android:name="com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment"
+        android:label="ConfirmStopDialogFragment" />
 </navigation>

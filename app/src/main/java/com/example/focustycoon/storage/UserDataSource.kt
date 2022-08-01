@@ -23,12 +23,12 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         const val MAX_CAPACITY_LEVEL: Int = 11
     }
 
-    var tokenAmount: MutableLiveData<Double> = MutableLiveData(sharedPreferences.getFloat(TOKEN_AMOUNT_KEY, 199999990f).toDouble())
+    var tokenAmount: MutableLiveData<Long> = MutableLiveData(sharedPreferences.getLong(TOKEN_AMOUNT_KEY, 199999990L))
     var efficiencyLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(EFFICIENCY_LEVEL_KEY, 1))
     var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(DURATION_LEVEL_KEY, 1))
 
 
-    override fun getCurrentTokens(): LiveData<Double> {
+    override fun getCurrentTokens(): LiveData<Long> {
         return tokenAmount
     }
 
@@ -56,44 +56,44 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
     }
 
     /** Returns the conversion rate of 5 minutes **/
-    override fun getConversionRate(): Double {
+    override fun getConversionRate(): Long {
         //for 5 minutes
         assert(efficiencyLevel.value != null)
         val level: Int = efficiencyLevel.value!!
-        val rate: Double = (2.0.pow((level - 1) / 2) * (1 + 0.4 * ((level - 1) % 2)))
-        return round(rate)
+        val rate: Long = (2.0.pow((level - 1) / 2) * (5 + 2 * ((level - 1) % 2))).toLong()
+        return rate
     }
 
     /** Returns the conversion rate of 5 minutes **/
-    override fun getConversionRate(level: Int): Double {
-        val rate: Double = (2.0.pow((level - 1) / 2) * (1 + 0.4 * ((level - 1) % 2)))
-        return round(rate)
+    override fun getConversionRate(level: Int): Long {
+        val rate: Long = (2.0.pow((level - 1) / 2) * (5 + 2 * ((level - 1) % 2))).toLong()
+        return rate
     }
 
-    override fun getEfficiencyUpgradeCost(): Double {
+    override fun getEfficiencyUpgradeCost(): Long {
         assert(efficiencyLevel.value != null)
         val level: Int = efficiencyLevel.value!!
-        var coef: Float = 1f
+        var coef = 5L
         if((level - 1) % 3 == 1) {
-            coef += 0.4f
+            coef += 2L
         }
         else if((level - 1) % 3 == 2) {
-            coef += 1f
+            coef += 5L
         }
-        val price: Double = (3.0.pow((level - 1) / 3) * coef)
-        return round(BASE_COST * price)
+        val price: Long = (3.0.pow((level - 1) / 3) * coef).toLong()
+        return BASE_COST * price
     }
 
-    override fun getEfficiencyUpgradeCost(level: Int): Double {
-        var coef: Double = 1.0
+    override fun getEfficiencyUpgradeCost(level: Int): Long {
+        var coef = 5L
         if((level - 1) % 3 == 1) {
-            coef += 0.4f
+            coef += 2L
         }
         else if((level - 1) % 3 == 2) {
-            coef += 1f
+            coef += 5L
         }
-        val price: Double = (3.0.pow((level - 1) / 3) * coef)
-        return round(BASE_COST * price)
+        val price: Long = (3.0.pow((level - 1) / 3) * coef).toLong()
+        return BASE_COST * price
     }
 
     override fun getEfficiencyLevel(): LiveData<Int> {
@@ -116,14 +116,14 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         return capacityLevel
     }
 
-    override fun getCapacityUpgradeCost(): Double {
+    override fun getCapacityUpgradeCost(): Long {
         assert(capacityLevel.value != null)
         val level = capacityLevel.value!!
-        return round(2.0.pow(level + 1) * getMaxCapacity() / 5)
+        return (2.0.pow(level + 1) * getMaxCapacity()).toLong()
     }
 
-    override fun getCapacityUpgradeCost(level: Int): Double {
-        return round(2.0.pow(level + 1) * getMaxCapacity() / 5)
+    override fun getCapacityUpgradeCost(level: Int): Long {
+        return (2.0.pow(level + 1) * getMaxCapacity()).toLong()
     }
 
     /** Returns true if successful, false otherwise */

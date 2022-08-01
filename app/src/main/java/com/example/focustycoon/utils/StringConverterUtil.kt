@@ -1,6 +1,7 @@
 package com.example.focustycoon.utils
 
 import android.util.Log
+import kotlin.math.floor
 import kotlin.math.round
 
 private const val TAG = "StringConverterUtil"
@@ -8,10 +9,10 @@ private const val TAG = "StringConverterUtil"
 class StringConverterUtil {
     companion object {
         fun toString(value: Double): String {
-            val vDouble: Double = round(value)
-            if((vDouble * 10).toLong() % 10 != 0L && vDouble < 1000) {
-                return vDouble.toString()
+            if((value * 10).toLong() % 10 != 0L && value < 1000) {
+                return value.toString()
             }
+
 
             return toString(value.toLong())
         }

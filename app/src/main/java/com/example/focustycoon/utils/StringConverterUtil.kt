@@ -7,8 +7,8 @@ private const val TAG = "StringConverterUtil"
 
 class StringConverterUtil {
     companion object {
-        fun toString(value: Float): String {
-            val vDouble: Double = round(value.toDouble())
+        fun toString(value: Double): String {
+            val vDouble: Double = round(value)
             if((vDouble * 10).toLong() % 10 != 0L && vDouble < 1000) {
                 return vDouble.toString()
             }

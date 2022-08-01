@@ -3,19 +3,19 @@ package com.example.focustycoon.storage
 import androidx.lifecycle.LiveData
 
 interface UserRepository {
-    fun getCurrentTokens(): LiveData<Float>
+    fun getCurrentTokens(): LiveData<Double>
     fun addTokens(duration: Long)
-    fun getConversionRate(): Float
-    fun getConversionRate(level: Int): Float
+    fun getConversionRate(): Double
+    fun getConversionRate(level: Int): Double
 
     fun getEfficiencyLevel(): LiveData<Int>
-    fun getEfficiencyUpgradeCost(): Float
-    fun getEfficiencyUpgradeCost(level: Int): Float
+    fun getEfficiencyUpgradeCost(): Double
+    fun getEfficiencyUpgradeCost(level: Int): Double
     fun upgradeEfficiency(): Boolean
 
     fun getCapacityLevel(): LiveData<Int>
     fun getMaxCapacity(): Int
-    fun getCapacityUpgradeCost(): Float
-    fun getCapacityUpgradeCost(level: Int): Float
+    fun getCapacityUpgradeCost(): Double
+    fun getCapacityUpgradeCost(level: Int): Double
     fun upgradeCapacity(): Boolean
 }

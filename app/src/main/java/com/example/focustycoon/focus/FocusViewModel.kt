@@ -11,7 +11,7 @@ private const val TAG = "FocusViewModel"
 
 class FocusViewModel @Inject constructor(private val userDataSource: UserDataSource): ViewModel() {
 
-    var tokenAmount: LiveData<Float> = userDataSource.getCurrentTokens()
+    var tokenAmount = userDataSource.getCurrentTokens()
     val capacityLevelLiveData = userDataSource.getCapacityLevel()
 
     fun getMaxCapacity() = userDataSource.getMaxCapacity()

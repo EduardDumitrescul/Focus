@@ -21,14 +21,19 @@ class StringConverterUtil {
         fun toString(value: Long): String {
             val billion = 1000000000L
             val million = 1000000L
+            val thousand = 1000L
             return when {
                 value >= billion -> {
                     val x = value.toDouble() / billion
-                    String.format("%.2f", x) + "M"
+                    String.format("%.2f", x) + "b"
                 }
                 value >= million -> {
                     val x = value.toDouble() / million
                     String.format("%.2f", x) + "m"
+                }
+                value >= thousand -> {
+                    val x = value.toDouble() / thousand
+                    String.format("%.2f", x) + "k"
                 }
                 else -> {
                     value.toString()

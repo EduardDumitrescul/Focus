@@ -25,15 +25,15 @@ class StringConverterUtil {
             val thousand = 1000L
             return when {
                 value >= billion -> {
-                    val x = value.toDouble() / billion
+                    val x = value * 100 / billion / 100.0
                     String.format("%.2f", x) + "b"
                 }
                 value >= million -> {
-                    val x = value.toDouble() / million
+                    val x = value * 100 / million / 100.0
                     String.format("%.2f", x) + "m"
                 }
                 value >= thousand -> {
-                    val x = value.toDouble() / thousand
+                    val x = value * 100 / thousand / 100.0
                     String.format("%.2f", x) + "k"
                 }
                 else -> {

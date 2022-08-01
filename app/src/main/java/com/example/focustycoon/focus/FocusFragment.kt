@@ -57,7 +57,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         }
         viewModel.tokenAmount.observe(viewLifecycleOwner) {
             binding.tokenAmount.textString = StringConverterUtil.toString(it)
-            Log.d(TAG, StringConverterUtil.toString(it))
+            Log.d(TAG, it.toString() + " " + StringConverterUtil.toString(it))
         }
     }
 

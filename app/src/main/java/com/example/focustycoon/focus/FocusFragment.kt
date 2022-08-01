@@ -153,6 +153,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
                 binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
                 binding.circularSeekBar.setIsThumbVisible(true)
                 viewModel.taskFinished()
+                stopTimer()
                 Log.d(TAG, "timer finished()")
             }
         }.start()

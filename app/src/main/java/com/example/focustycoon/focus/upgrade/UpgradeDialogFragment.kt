@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.BaseObservable
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
@@ -58,14 +59,24 @@ class UpgradeDialogFragment: DialogFragment() {
             updateCapacityUpgrade()
         }
         binding.upgradeEfficiency.upgradeButton.setOnClickListener {
-            viewModel.upgradeEfficiency()
+            val success = viewModel.upgradeEfficiency()
+            if(!success) {
+                showNotEnoughTokensToast()
+            }
         }
         binding.upgradeCapacity.upgradeButton.setOnClickListener {
-            viewModel.upgradeCapacity()
+            val success = viewModel.upgradeCapacity()
+            if(!success) {
+                showNotEnoughTokensToast()
+            }
         }
         viewModel.tokenAmountLiveData.observe(viewLifecycleOwner) {
             binding.tokenAmount.textString = StringConverterUtil.toString(it)
         }
+    }
+
+    private fun showNotEnoughTokensToast() {
+        Toast.makeText(this.context, "You do not have enough Focus Tokens", Toast.LENGTH_LONG).show()
     }
 
     private fun updateEfficiencyUpgrade() {

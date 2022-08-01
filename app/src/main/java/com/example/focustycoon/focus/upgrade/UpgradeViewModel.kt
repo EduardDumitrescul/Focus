@@ -19,13 +19,13 @@ class UpgradeViewModel @Inject constructor(private val userDataSource: UserDataS
     fun getEfficiencyUpgradeCost() = userDataSource.getEfficiencyUpgradeCost()
     fun getCapacityUpgradeCost() = userDataSource.getCapacityUpgradeCost()
 
-    fun upgradeEfficiency() {
+    fun upgradeEfficiency(): Boolean {
         Log.d(TAG, "upgradeEfficiency()")
-        userDataSource.upgradeEfficiency()
+        return userDataSource.upgradeEfficiency()
     }
 
-    fun upgradeCapacity() {
-        userDataSource.upgradeCapacity()
+    fun upgradeCapacity(): Boolean {
+        return userDataSource.upgradeCapacity()
     }
 
     fun getMaxCapacityLevel() = UserDataSource.MAX_CAPACITY_LEVEL

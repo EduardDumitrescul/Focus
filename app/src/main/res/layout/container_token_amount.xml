@@ -17,7 +17,8 @@
             android:orientation="horizontal"
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
-            android:clipToPadding="false"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
             android:background="@drawable/background_rounded_cherry">
 
             <TextView
@@ -28,11 +29,11 @@
                 android:gravity="center"
                 android:text="@{textString}"
                 app:autoSizeTextType="uniform"
-
+                app:autoSizeMaxTextSize="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="0.00" />
+                tools:text="0.00000" />
 
             <ImageView
                 android:id="@+id/imageView2"

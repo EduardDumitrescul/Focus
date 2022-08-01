@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             app:icon="@drawable/outline_upgrade_24"
             tools:text="0.00"
-            android:textSize="13sp"
+            android:textSize="12dp"
             app:autoSizeMaxTextSize="14sp"
             android:textAlignment="textEnd"
             android:gravity="center|end"

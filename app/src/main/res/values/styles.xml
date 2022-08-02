@@ -16,8 +16,7 @@
     </style>
 
     <style name="AppDialogTheme" parent="Theme.Material3.Light.Dialog.MinWidth">
-        <item name="android:background">@color/purple_700</item>
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="android:colorBackground">@color/purple_50</item>
+        <item name="color">@color/purple_700</item>
     </style>
 </resources>

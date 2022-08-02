@@ -19,14 +19,13 @@
             android:layout_width="wrap_content"
             android:clipToPadding="false"
             android:paddingStart="4dp"
-            android:paddingEnd="4dp"
             android:background="@drawable/background_rounded_cherry">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="W,4"
+                app:layout_constraintDimensionRatio="W,3.4"
                 android:gravity="center"
                 android:text="@{textString}"
                 app:autoSizeTextType="uniform"
@@ -34,7 +33,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="0.00000" />
+                tools:text="200.00m" />
 
             <ImageView
                 android:id="@+id/imageView2"

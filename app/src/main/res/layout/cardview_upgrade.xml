@@ -9,10 +9,12 @@
         android:paddingVertical="2dp">
 
         <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.Icon"
             android:id="@+id/upgradeButton"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             app:icon="@drawable/outline_upgrade_24"
+            app:iconSize="24dp"
             tools:text="0.00"
             android:textSize="12dp"
             app:autoSizeMaxTextSize="14sp"

@@ -32,7 +32,7 @@
         <item name="colorControlNormal">@color/purple_700</item>
 
 
-<!--        <item name="android:dialogTheme">@style/AppDialogTheme</item>-->
+        <item name="android:dialogTheme">@style/AppDialogTheme</item>
 <!--        <item name="android:alertDialogTheme">@style/AppDialogTheme</item>-->
     </style>
 </resources>

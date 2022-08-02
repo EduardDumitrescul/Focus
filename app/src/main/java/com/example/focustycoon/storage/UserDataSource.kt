@@ -10,7 +10,7 @@ import kotlin.math.round
 
 private const val TOKEN_AMOUNT_KEY = "token_amount"
 private const val EFFICIENCY_LEVEL_KEY = "efficiency_level"
-private const val DURATION_LEVEL_KEY = "duration_level"
+private const val CAPACITY_LEVEL_KEY = "duration_level"
 
 private const val TAG = "UserDataSource"
 private const val BASE_COST: Int = 10
@@ -23,9 +23,9 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         const val MAX_CAPACITY_LEVEL: Int = 11
     }
 
-    var tokenAmount: MutableLiveData<Long> = MutableLiveData(sharedPreferences.getLong(TOKEN_AMOUNT_KEY, 199999990L))
+    var tokenAmount: MutableLiveData<Long> = MutableLiveData(sharedPreferences.getLong(TOKEN_AMOUNT_KEY, 0))
     var efficiencyLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(EFFICIENCY_LEVEL_KEY, 1))
-    var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(DURATION_LEVEL_KEY, 1))
+    var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(CAPACITY_LEVEL_KEY, 1))
 
 
     override fun getCurrentTokens(): LiveData<Long> {
@@ -139,5 +139,13 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         tokenAmount.value = tokenAmount.value!! - getCapacityUpgradeCost()
         capacityLevel.value = capacityLevel.value!! + 1
         return true
+    }
+
+    override fun saveData() {
+        sharedPreferences.edit().apply{
+            putLong(TOKEN_AMOUNT_KEY, tokenAmount.value!!)
+            putInt(EFFICIENCY_LEVEL_KEY, efficiencyLevel.value!!)
+            putInt(CAPACITY_LEVEL_KEY, capacityLevel.value!!)
+        }.apply()
     }
 }

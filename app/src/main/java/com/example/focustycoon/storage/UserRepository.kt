@@ -18,4 +18,6 @@ interface UserRepository {
     fun getCapacityUpgradeCost(): Long
     fun getCapacityUpgradeCost(level: Int): Long
     fun upgradeCapacity(): Boolean
+
+    fun saveData()
 }

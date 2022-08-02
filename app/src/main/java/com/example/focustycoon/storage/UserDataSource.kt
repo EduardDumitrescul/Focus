@@ -32,8 +32,9 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         return tokenAmount
     }
 
-    override fun addTokens(duration: Long) {
+    override fun addTokens(duration: Long): Long {
         tokenAmount.value = tokenAmount.value?.plus(duration * getConversionRate())
+        return duration * getConversionRate()
     }
 
 

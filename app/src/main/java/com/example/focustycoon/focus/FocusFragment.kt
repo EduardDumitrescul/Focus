@@ -109,6 +109,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
         timerIsRunning = true
         binding.button.text = "Cancel"
+        showStartingMessage()
 
         cancelTimer?.cancel()
         shouldShowDialog = false
@@ -123,6 +124,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             override fun onFinish() {
                 binding.button.text = "Cancel"
                 shouldShowDialog = true
+                showWorkingMessage()
             }
 
         }.start()
@@ -152,13 +154,15 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             override fun onFinish() {
                 binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
                 binding.circularSeekBar.setIsThumbVisible(true)
-                viewModel.taskFinished()
-                stopTimer()
+
+                val earned = viewModel.taskFinished()
+                showFinishedMessage(earned)
+                finishedTimer()
                 Log.d(TAG, "timer finished()")
             }
         }.start()
-
     }
+
     private fun tryStoppingTimer() {
         if(!shouldShowDialog) {
             cancelTimer?.cancel()
@@ -172,10 +176,32 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     private fun stopTimer() {
         Log.d(TAG, "stopTimer()")
         timer?.cancel()
+        showCancelMessage()
+        finishedTimer()
+    }
+
+    private fun finishedTimer() {
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
         binding.circularSeekBar.setIsThumbVisible(true)
         timerIsRunning = false
         binding.button.text = "Focus"
+
+    }
+
+    private fun showCancelMessage() {
+        binding.messageTextView.text = "Noooo! But you can try again."
+    }
+
+    private fun showFinishedMessage(earned: Long) {
+        binding.messageTextView.text = "Nice! You just earned $earned Focus Tokens"
+    }
+
+    private fun showWorkingMessage() {
+        binding.messageTextView.text = "Keep up the great work!\nJust Focus!"
+    }
+
+    private fun showStartingMessage() {
+        binding.messageTextView.text = "Great!\nNow close your phone and start focusing."
     }
 
     fun openUpgradeDialog() {

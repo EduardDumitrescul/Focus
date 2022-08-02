@@ -16,8 +16,8 @@ class FocusViewModel @Inject constructor(private val userDataSource: UserDataSou
 
     fun getMaxCapacity() = userDataSource.getMaxCapacity()
 
-    fun taskFinished() {
-        userDataSource.addTokens(duration)
+    fun taskFinished(): Long {
+        return userDataSource.addTokens(duration)
     }
 
     /** in milliseconds **/

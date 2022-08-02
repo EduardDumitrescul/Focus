@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 
 interface UserRepository {
     fun getCurrentTokens(): LiveData<Long>
-    fun addTokens(duration: Long)
+    fun addTokens(duration: Long): Long
     fun getConversionRate(): Long
     fun getConversionRate(level: Int): Long
 

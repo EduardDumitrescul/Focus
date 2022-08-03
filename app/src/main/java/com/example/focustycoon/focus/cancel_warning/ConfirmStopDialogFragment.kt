@@ -1,7 +1,5 @@
 package com.example.focustycoon.focus.cancel_warning
 
-import android.app.AuthenticationRequiredException
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +7,10 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.DialogConfirmStopBinding
-import com.example.focustycoon.focus.FocusFragment
 
 class ConfirmStopDialogFragment: DialogFragment() {
 

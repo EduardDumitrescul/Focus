@@ -1,9 +1,5 @@
 package com.example.focustycoon.utils
 
-import android.util.Log
-import kotlin.math.floor
-import kotlin.math.round
-
 private const val TAG = "StringConverterUtil"
 
 class StringConverterUtil {

@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import javax.inject.Inject
 import kotlin.math.pow
-import kotlin.math.round
 
 private const val TOKEN_AMOUNT_KEY = "token_amount"
 private const val EFFICIENCY_LEVEL_KEY = "efficiency_level"
@@ -15,7 +14,7 @@ private const val CAPACITY_LEVEL_KEY = "duration_level"
 private const val TAG = "UserDataSource"
 private const val BASE_COST: Int = 10
 
-class UserDataSource @Inject constructor(var sharedPreferences: SharedPreferences): UserRepository {
+class UserDataSource @Inject constructor(private var sharedPreferences: SharedPreferences): UserRepository {
 
     companion object {
         /** The smallest unit of time **/
@@ -23,9 +22,9 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         const val MAX_CAPACITY_LEVEL: Int = 11
     }
 
-    var tokenAmount: MutableLiveData<Long> = MutableLiveData(sharedPreferences.getLong(TOKEN_AMOUNT_KEY, 0))
-    var efficiencyLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(EFFICIENCY_LEVEL_KEY, 1))
-    var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(CAPACITY_LEVEL_KEY, 1))
+    private var tokenAmount: MutableLiveData<Long> = MutableLiveData(sharedPreferences.getLong(TOKEN_AMOUNT_KEY, 0))
+    private var efficiencyLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(EFFICIENCY_LEVEL_KEY, 1))
+    private var capacityLevel: MutableLiveData<Int> = MutableLiveData(sharedPreferences.getInt(CAPACITY_LEVEL_KEY, 1))
 
 
     override fun getCurrentTokens(): LiveData<Long> {
@@ -61,14 +60,12 @@ class UserDataSource @Inject constructor(var sharedPreferences: SharedPreference
         //for 5 minutes
         assert(efficiencyLevel.value != null)
         val level: Int = efficiencyLevel.value!!
-        val rate: Long = (2.0.pow((level - 1) / 2) * (5 + 2 * ((level - 1) % 2))).toLong()
-        return rate
+        return (2.0.pow((level - 1) / 2) * (5 + 2 * ((level - 1) % 2))).toLong()
     }
 
     /** Returns the conversion rate of 5 minutes **/
     override fun getConversionRate(level: Int): Long {
-        val rate: Long = (2.0.pow((level - 1) / 2) * (5 + 2 * ((level - 1) % 2))).toLong()
-        return rate
+        return (2.0.pow((level - 1) / 2) * (5 + 2 * ((level - 1) % 2))).toLong()
     }
 
     override fun getEfficiencyUpgradeCost(): Long {

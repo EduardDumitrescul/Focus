@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
-import androidx.navigation.NavHostController
 import androidx.navigation.fragment.findNavController
 import com.example.circularseekbar.CircularSeekBar
 import com.example.focustycoon.MainApplication
@@ -19,8 +18,6 @@ import com.example.focustycoon.R
 import com.example.focustycoon.databinding.FragmentFocusBinding
 import com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment
 import com.example.focustycoon.utils.StringConverterUtil
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import java.util.*
 import javax.inject.Inject
 
 private const val TAG = "FocusFragment"
@@ -39,7 +36,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setFragmentResultListener(ConfirmStopDialogFragment.KEY) { requestKey, bundle ->
+        setFragmentResultListener(ConfirmStopDialogFragment.KEY) { _, bundle ->
             val confirm: Boolean = bundle.getBoolean(ConfirmStopDialogFragment.CONFIRM_KEY)
             if(confirm)
                 stopTimer()
@@ -83,7 +80,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         val minutes = value / 1000 % 3600 / 60
         val seconds = value / 1000 % 60
 
-        var string = ""
+        var string: String
 
         if(hours > 0) {
             string = hours.toString() + "h "
@@ -114,7 +111,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         }
 
         timerIsRunning = true
-        binding.button.text = "Cancel"
+        binding.button.text = resources.getString(R.string.cancel)
         showStartingMessage()
 
         cancelTimer?.cancel()
@@ -122,13 +119,12 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         cancelTimer = object: CountDownTimer(5000, 1000) {
             var current = 5
             override fun onTick(millisUntilFinished: Long) {
-                Log.d(TAG, "cancel timer")
-                binding.button.text = "Cancel($current)"
+                binding.button.text = resources.getString(R.string.cancel_with_timer, current)
                 current --
             }
 
             override fun onFinish() {
-                binding.button.text = "Cancel"
+                binding.button.text = resources.getString(R.string.cancel)
                 shouldShowDialog = true
                 showWorkingMessage()
             }
@@ -152,7 +148,6 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             override fun onTick(millisUntilFinished: Long) {
                 binding.viewmodel!!.updateTime()
                 viewModel.timeLeftLiveData.value?.let {
-                    Log.d(TAG, it.toString())
                     binding.circularSeekBar.setValue(it.toFloat() / 1000 / 300)
                 }
             }
@@ -164,7 +159,6 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
                 val earned = viewModel.taskFinished()
                 showFinishedMessage(earned)
                 finishedTimer()
-                Log.d(TAG, "timer finished()")
             }
         }.start()
     }
@@ -190,24 +184,24 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
         binding.circularSeekBar.setIsThumbVisible(true)
         timerIsRunning = false
-        binding.button.text = "Focus"
+        binding.button.text = resources.getString(R.string.focus)
 
     }
 
     private fun showCancelMessage() {
-        binding.messageTextView.text = "Noooo! But you can try again."
+        binding.messageTextView.text = resources.getString(R.string.cancel_message)
     }
 
     private fun showFinishedMessage(earned: Long) {
-        binding.messageTextView.text = "Nice! You just earned $earned Focus Tokens"
+        binding.messageTextView.text = resources.getString(R.string.earning_message, earned)
     }
 
     private fun showWorkingMessage() {
-        binding.messageTextView.text = "Keep up the great work!\nJust Focus!"
+        binding.messageTextView.text = resources.getString(R.string.working_message)
     }
 
     private fun showStartingMessage() {
-        binding.messageTextView.text = "Great!\nNow close your phone and start focusing."
+        binding.messageTextView.text = resources.getString(R.string.starting_work_message)
     }
 
     fun openUpgradeDialog() {

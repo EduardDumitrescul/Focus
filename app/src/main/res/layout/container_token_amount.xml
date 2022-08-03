@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:clipToPadding="false"
             android:paddingStart="4dp"
+            android:paddingEnd="0dp"
             android:background="@drawable/background_rounded_cherry">
 
             <TextView
@@ -47,7 +48,8 @@
                 app:layout_constraintDimensionRatio="W,1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/token_icon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

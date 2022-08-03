@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">FocusTycoon</string>
+    <string name="upgrade_icon">upgrade icon</string>
+    <string name="upgrade_text">UPGRADE</string>
+    <string name="level">level</string>
+    <string name="explanation">a longer explanation</string>
+    <string name="token_icon">Token Icon</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="upgrades">UPGRADES</string>
+    <string name="focus">Focus</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="efficiency">EFFICIENCY</string>
+    <string name="capacity">CAPACITY</string>
+    <string name="level_count">level %1$d</string>
+    <string name="token_gain">Currently, you gain %1$s tokens for every %2$d minutes of focused time</string>
+    <string name="max_capacity">The maximum timer duration is %1$d minutes</string>
+    <string name="max">Max</string>
+    <string name="cancel_with_timer"> Cancel (%1$d)</string>
+
+    <string name="cancel_message">Noooo! But you can try again.</string>
+    <string name="earning_message">Nice! You just earned %1$d Focus Tokens</string>
+    <string name="working_message">Keep up the great work!\nJust Focus!</string>
+    <string name="starting_work_message">Great!\nNow close your phone and start focusing.</string>
 </resources>

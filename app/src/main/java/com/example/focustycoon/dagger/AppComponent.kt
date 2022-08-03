@@ -1,7 +1,6 @@
 package com.example.focustycoon.dagger
 
 import android.app.Application
-import androidx.fragment.app.DialogFragment
 import com.example.focustycoon.focus.FocusFragment
 import com.example.focustycoon.MainActivity
 import com.example.focustycoon.focus.upgrade.UpgradeDialogFragment

@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:lines="2"
-            android:text="Are you sure you want to stop the timer?\n You will lose the accumulated progress."
             android:textSize="20sp" />
 
         <com.google.android.material.button.MaterialButton
@@ -24,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:onClick="@{() -> dialog.onCancelButtonPressed()}"/>
 
         <com.google.android.material.button.MaterialButton
@@ -32,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:text="Confirm"
+            android:text="@string/confirm"
             android:onClick="@{() -> dialog.onConfirmButtonPressed()}"/>
 
     </RelativeLayout>

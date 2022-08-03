@@ -106,7 +106,6 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
         }
         tokenAmount.value = tokenAmount.value!! - getEfficiencyUpgradeCost()
         efficiencyLevel.value = efficiencyLevel.value!! + 1
-        Log.d(TAG, "upgradeEfficiency()")
         return true
     }
 

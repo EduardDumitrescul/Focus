@@ -20,7 +20,6 @@ class UpgradeViewModel @Inject constructor(private val userDataSource: UserDataS
     fun getCapacityUpgradeCost() = userDataSource.getCapacityUpgradeCost()
 
     fun upgradeEfficiency(): Boolean {
-        Log.d(TAG, "upgradeEfficiency()")
         return userDataSource.upgradeEfficiency()
     }
 

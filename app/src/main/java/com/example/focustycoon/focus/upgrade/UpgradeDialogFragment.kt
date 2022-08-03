@@ -49,7 +49,6 @@ class UpgradeDialogFragment: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.efficiencyLevelLiveData.observe(viewLifecycleOwner) {
-            Log.d(TAG, "onViewCreated()")
             updateEfficiencyUpgrade()
         }
         viewModel.capacityLevelLiveData.observe(viewLifecycleOwner) {

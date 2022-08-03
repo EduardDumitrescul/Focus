@@ -31,12 +31,10 @@ class FocusViewModel @Inject constructor(private val userDataSource: UserDataSou
 
 
     fun setTimeLeft(timeLeft: Long) {
-        Log.d(TAG, "setTimeLeft() $timeLeft")
         timeLeftLiveData.value = timeLeft
     }
 
     fun updateTime() {
-        Log.d(TAG, "$startTime $duration ${System.currentTimeMillis()}")
         timeLeftLiveData.value = startTime + duration * 1000 * 300 - System.currentTimeMillis()
     }
 }

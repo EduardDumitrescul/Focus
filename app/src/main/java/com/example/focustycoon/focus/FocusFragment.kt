@@ -69,12 +69,10 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         }
         viewModel.tokenAmount.observe(viewLifecycleOwner) {
             binding.tokenAmount.textString = StringConverterUtil.toString(it)
-            Log.d(TAG, it.toString() + " " + StringConverterUtil.toString(it))
         }
     }
 
     private fun setTimerValue(value: Long) {
-        Log.d(TAG, "setTimerValue() $value")
 
         val hours = value / 1000 / 3600
         val minutes = value / 1000 % 3600 / 60
@@ -136,15 +134,13 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
         viewModel.startTime = System.currentTimeMillis()
         viewModel.duration = viewModel.timeLeftLiveData.value!! / 300000
-        Log.d(TAG, "startTimer() ${viewModel.duration}")
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_LOCKED)
         binding.circularSeekBar.setIsThumbVisible(false)
 
-        Log.d(TAG, "timerStart()")
 
         timer?.cancel()
         /** modify duration multiplier (should pe 300 * 1000) **/
-        timer = object: CountDownTimer(binding.viewmodel!!.duration * 3000, 1000){
+        timer = object: CountDownTimer(binding.viewmodel!!.duration * 300 * 1000, 1000){
             override fun onTick(millisUntilFinished: Long) {
                 binding.viewmodel!!.updateTime()
                 viewModel.timeLeftLiveData.value?.let {
@@ -174,7 +170,6 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     }
 
     private fun stopTimer() {
-        Log.d(TAG, "stopTimer()")
         timer?.cancel()
         showCancelMessage()
         finishedTimer()

@@ -1,6 +1,7 @@
 package com.example.focustycoon.focus
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -114,20 +115,25 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
         cancelTimer?.cancel()
         shouldShowDialog = false
+        val mediaPlayerBeep1: MediaPlayer = MediaPlayer.create(context, R.raw.beep1)
+        val mediaPlayerBeep2 = MediaPlayer.create(context, R.raw.beep2)
         cancelTimer = object: CountDownTimer(5000, 1000) {
             var current = 5
             override fun onTick(millisUntilFinished: Long) {
+                mediaPlayerBeep1.start()
                 binding.button.text = resources.getString(R.string.cancel_with_timer, current)
                 current --
             }
 
             override fun onFinish() {
                 binding.button.text = resources.getString(R.string.cancel)
+                mediaPlayerBeep2.start()
                 shouldShowDialog = true
                 showWorkingMessage()
             }
 
         }.start()
+
 
         assert(binding.viewmodel != null)
         assert(binding.viewmodel!!.timeLeftLiveData.value != null)

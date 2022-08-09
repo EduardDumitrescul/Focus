@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.focustycoon">
+    package="com.example.focustycoon"
+    android:versionName="0.0.1"
+    android:versionCode="1">
 
     <application
         android:name=".MainApplication"

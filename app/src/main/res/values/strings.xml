@@ -23,4 +23,5 @@
     <string name="working_message">Keep up the great work!\nJust Focus!</string>
     <string name="starting_work_message">Great!\nNow close your phone and start focusing.</string>
     <string name="end_session_confirm">Are you sure you want to end the session?</string>
+    <string name="confirm_icon">confirm icon</string>
 </resources>

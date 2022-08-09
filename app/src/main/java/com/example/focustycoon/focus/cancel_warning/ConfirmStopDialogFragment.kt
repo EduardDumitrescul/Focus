@@ -1,5 +1,7 @@
 package com.example.focustycoon.focus.cancel_warning
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +31,7 @@ class ConfirmStopDialogFragment: DialogFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.dialog_confirm_stop, container, false)
         binding.dialog = this
         binding.lifecycleOwner = viewLifecycleOwner
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return binding.root
     }
 

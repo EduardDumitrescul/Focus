@@ -22,4 +22,5 @@
     <string name="earning_message">Nice! You just earned %1$d Focus Tokens</string>
     <string name="working_message">Keep up the great work!\nJust Focus!</string>
     <string name="starting_work_message">Great!\nNow close your phone and start focusing.</string>
+    <string name="end_session_confirm">Are you sure you want to end the session?</string>
 </resources>

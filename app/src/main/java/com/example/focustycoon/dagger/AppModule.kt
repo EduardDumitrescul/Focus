@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.focustycoon.SoundService
+import com.example.focustycoon.notification.AlarmManagerUtil
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -19,5 +20,11 @@ class AppModule {
     @Singleton
     fun provideSoundService(application: Application): SoundService {
         return SoundService(application.applicationContext)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAlarmManagerUtil(application: Application): AlarmManagerUtil {
+        return AlarmManagerUtil(application.applicationContext)
     }
 }

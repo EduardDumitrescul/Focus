@@ -18,6 +18,7 @@ import com.example.focustycoon.R
 import com.example.focustycoon.SoundService
 import com.example.focustycoon.databinding.FragmentFocusBinding
 import com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment
+import com.example.focustycoon.notification.AlarmManagerUtil
 import com.example.focustycoon.utils.StringConverterUtil
 import javax.inject.Inject
 
@@ -29,6 +30,8 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
     @Inject
     lateinit var viewModel: FocusViewModel
+    @Inject
+    lateinit var alarmManagerUtil: AlarmManagerUtil
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -128,9 +131,10 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
     private fun setupNormalTimer() {
         timerIsRunning = true
+        shouldShowDialog = true
         binding.button.text = resources.getString(R.string.cancel)
         showStartingMessage()
-        shouldShowDialog = true
+
 
         assert(binding.viewmodel != null)
         assert(binding.viewmodel!!.timeLeftLiveData.value != null)
@@ -140,8 +144,10 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
 
         timer?.cancel()
+        alarmManagerUtil.sendFinishedSessionNotification(viewModel.duration)
+
         /** modify duration multiplier (should pe 300 * 1000) **/
-        timer = object: CountDownTimer(binding.viewmodel!!.duration, 1000){
+        timer = object: CountDownTimer(viewModel.duration, 1000){
             override fun onTick(millisUntilFinished: Long) {
                 binding.viewmodel!!.updateTime()
                 viewModel.timeLeftLiveData.value?.let {

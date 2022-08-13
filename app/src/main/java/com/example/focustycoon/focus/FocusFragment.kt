@@ -1,7 +1,6 @@
 package com.example.focustycoon.focus
 
 import android.content.Context
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -73,6 +72,15 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         viewModel.tokenAmount.observe(viewLifecycleOwner) {
             binding.tokenAmount.textString = StringConverterUtil.toString(it)
         }
+
+        // Check whether the timer is already running
+        if(viewModel.startTime + viewModel.duration > System.currentTimeMillis()) {
+            viewModel.setTimeLeft(viewModel.startTime + viewModel.duration  - System.currentTimeMillis())
+            setupNormalTimer()
+        }
+        else if(viewModel.duration > 0) {
+            viewModel.taskFinished()
+        }
     }
 
     private fun setTimerValue(value: Long) {
@@ -100,7 +108,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     private var timerIsRunning: Boolean = false
     private var shouldShowDialog: Boolean = false
 
-    fun startTimer() {
+    fun startSession() {
         if(timerIsRunning) {
             tryStoppingTimer()
             return
@@ -111,10 +119,48 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             return
         }
 
+        viewModel.startTime = System.currentTimeMillis()
+
+        setupNormalTimer()
+        setupCancelTimer()
+
+    }
+
+    private fun setupNormalTimer() {
         timerIsRunning = true
         binding.button.text = resources.getString(R.string.cancel)
         showStartingMessage()
+        shouldShowDialog = true
 
+        assert(binding.viewmodel != null)
+        assert(binding.viewmodel!!.timeLeftLiveData.value != null)
+
+        binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_LOCKED)
+        binding.circularSeekBar.setIsThumbVisible(false)
+
+
+        timer?.cancel()
+        /** modify duration multiplier (should pe 300 * 1000) **/
+        timer = object: CountDownTimer(binding.viewmodel!!.duration, 1000){
+            override fun onTick(millisUntilFinished: Long) {
+                binding.viewmodel!!.updateTime()
+                viewModel.timeLeftLiveData.value?.let {
+                    binding.circularSeekBar.setValue(it.toFloat() / 1000 / 300)
+                }
+            }
+
+            override fun onFinish() {
+                binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
+                binding.circularSeekBar.setIsThumbVisible(true)
+
+                val earned = viewModel.taskFinished()
+                showFinishedMessage(earned)
+                finishedTimer()
+            }
+        }.start()
+    }
+
+    private fun setupCancelTimer() {
         cancelTimer?.cancel()
         shouldShowDialog = false
         cancelTimer = object: CountDownTimer(5000, 1000) {
@@ -132,36 +178,6 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
                 showWorkingMessage()
             }
 
-        }.start()
-
-
-        assert(binding.viewmodel != null)
-        assert(binding.viewmodel!!.timeLeftLiveData.value != null)
-
-        viewModel.startTime = System.currentTimeMillis()
-        viewModel.duration = viewModel.timeLeftLiveData.value!! / 300000
-        binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_LOCKED)
-        binding.circularSeekBar.setIsThumbVisible(false)
-
-
-        timer?.cancel()
-        /** modify duration multiplier (should pe 300 * 1000) **/
-        timer = object: CountDownTimer(binding.viewmodel!!.duration * 300 * 1000, 1000){
-            override fun onTick(millisUntilFinished: Long) {
-                binding.viewmodel!!.updateTime()
-                viewModel.timeLeftLiveData.value?.let {
-                    binding.circularSeekBar.setValue(it.toFloat() / 1000 / 300)
-                }
-            }
-
-            override fun onFinish() {
-                binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
-                binding.circularSeekBar.setIsThumbVisible(true)
-
-                val earned = viewModel.taskFinished()
-                showFinishedMessage(earned)
-                finishedTimer()
-            }
         }.start()
     }
 
@@ -185,7 +201,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
         binding.circularSeekBar.setIsThumbVisible(true)
         binding.circularSeekBar.setValue(0)
-        onValueChangeDetected(0)
+        viewModel.reset()
         timerIsRunning = false
         binding.button.text = resources.getString(R.string.focus)
 
@@ -211,7 +227,12 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         findNavController().navigate(R.id.openUpgradeDialog)
     }
 
+    override fun onPause() {
+        super.onPause()
+        viewModel.saveState()
+    }
+
     override fun onValueChangeDetected(value: Int) {
-        viewModel.setTimeLeft(300L * 1000L * value)
+        viewModel.duration = 300L * 1000L * value
     }
 }

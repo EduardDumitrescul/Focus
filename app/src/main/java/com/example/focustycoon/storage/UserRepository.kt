@@ -8,6 +8,11 @@ interface UserRepository {
     fun getConversionRate(): Long
     fun getConversionRate(level: Int): Long
 
+    fun getStartTime(): Long
+    fun setStartTime(millis: Long)
+    fun getCurrentDuration(): Long
+    fun setCurrentDuration(millis: Long)
+
     fun getEfficiencyLevel(): LiveData<Int>
     fun getEfficiencyUpgradeCost(): Long
     fun getEfficiencyUpgradeCost(level: Int): Long

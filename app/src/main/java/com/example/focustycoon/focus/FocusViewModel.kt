@@ -20,21 +20,38 @@ class FocusViewModel @Inject constructor(private val userDataSource: UserDataSou
     }
 
     /** in milliseconds **/
-    var startTime: Long = 0
+    var startTime: Long = userDataSource.getStartTime()
+        set(value) {
+            field = value
+            userDataSource.setStartTime(value)
+        }
 
-    /** 1 unit = 5 minutes **/
-    var duration: Long = 0
+    /** millis **/
+    var duration: Long = userDataSource.getCurrentDuration()
+        set(value) {
+            field = value
+            setTimeLeft(duration)
+        }
 
     /** in milliseconds **/
     val timeLeftLiveData: MutableLiveData<Long> = MutableLiveData(0)
 
+    fun reset() {
+        duration = 0
+        startTime = 0
+        setTimeLeft(0)
+    }
 
+    fun saveState() {
+        userDataSource.setStartTime(startTime)
+        userDataSource.setCurrentDuration(duration)
+    }
 
     fun setTimeLeft(timeLeft: Long) {
         timeLeftLiveData.value = timeLeft
     }
 
     fun updateTime() {
-        timeLeftLiveData.value = startTime + duration * 1000 * 300 - System.currentTimeMillis()
+        timeLeftLiveData.value = startTime + duration - System.currentTimeMillis()
     }
 }

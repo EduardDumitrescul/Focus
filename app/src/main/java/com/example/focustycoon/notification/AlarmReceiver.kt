@@ -15,6 +15,11 @@ class AlarmReceiver: BroadcastReceiver() {
 
         }
         else {
+            // don't send notification if app is running
+            if(MainActivity.isActive) {
+                return
+            }
+
             assert(context != null)
             val builder = NotificationCompat.Builder(context!!, MainActivity.CHANNEL_ID )
                 .setSmallIcon(R.drawable.coin_focus_48)

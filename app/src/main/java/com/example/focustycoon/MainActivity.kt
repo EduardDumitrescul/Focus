@@ -13,6 +13,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     companion object {
+        var isActive: Boolean = false
         const val CHANNEL_ID: String = "channel 1"
     }
 
@@ -45,20 +46,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         createNotificationChannel()
         (application as MainApplication).appComponent.inject(this)
+        isActive = true
     }
 
     override fun onResume() {
         super.onResume()
         soundService.setActivityResumed()
+        isActive = true
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        isActive = false
     }
 
     override fun onPause() {
         super.onPause()
         userDataSource.saveData()
+        isActive = false
     }
 
     override fun onStop() {
         super.onStop()
         soundService.setActivityStopped()
+        isActive = false
     }
 }

@@ -184,6 +184,8 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     private fun finishedTimer() {
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
         binding.circularSeekBar.setIsThumbVisible(true)
+        binding.circularSeekBar.setValue(0)
+        onValueChangeDetected(0)
         timerIsRunning = false
         binding.button.text = resources.getString(R.string.focus)
 

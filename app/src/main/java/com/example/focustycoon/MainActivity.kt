@@ -9,6 +9,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userDataSource: UserDataSource
 
+    @Inject
+    lateinit var soundService: SoundService
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,8 +19,18 @@ class MainActivity : AppCompatActivity() {
         (application as MainApplication).appComponent.inject(this)
     }
 
+    override fun onResume() {
+        super.onResume()
+        soundService.setActivityResumed()
+    }
+
     override fun onPause() {
         super.onPause()
         userDataSource.saveData()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        soundService.setActivityStopped()
     }
 }

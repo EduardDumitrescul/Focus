@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.circularseekbar.CircularSeekBar
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
+import com.example.focustycoon.SoundService
 import com.example.focustycoon.databinding.FragmentFocusBinding
 import com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment
 import com.example.focustycoon.utils.StringConverterUtil
@@ -25,6 +26,7 @@ private const val TAG = "FocusFragment"
 
 class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     private lateinit var binding: FragmentFocusBinding
+    @Inject lateinit var soundService: SoundService
 
     @Inject
     lateinit var viewModel: FocusViewModel
@@ -115,19 +117,17 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
         cancelTimer?.cancel()
         shouldShowDialog = false
-        val mediaPlayerBeep1: MediaPlayer = MediaPlayer.create(context, R.raw.beep1)
-        val mediaPlayerBeep2 = MediaPlayer.create(context, R.raw.beep2)
         cancelTimer = object: CountDownTimer(5000, 1000) {
             var current = 5
             override fun onTick(millisUntilFinished: Long) {
-                mediaPlayerBeep1.start()
+                soundService.playTimerTick1()
                 binding.button.text = resources.getString(R.string.cancel_with_timer, current)
                 current --
             }
 
             override fun onFinish() {
                 binding.button.text = resources.getString(R.string.cancel)
-                mediaPlayerBeep2.start()
+                soundService.playTimerTick2()
                 shouldShowDialog = true
                 showWorkingMessage()
             }

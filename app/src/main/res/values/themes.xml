@@ -1,38 +1,50 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.FocusTycoon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent.Circular</item>
+        <item name="android:fontFamily">@font/louis_george_cafe_bold</item>
+        <item name="fontFamily">@font/louis_george_cafe_bold</item>
+
+
+        <item name="android:dialogTheme">@style/AppDialogTheme</item>
+<!--        <item name="android:alertDialogTheme">@style/AppDialogTheme</item>-->
+    </style>
+
+    <style name="Theme.FocusTycoon.Magenta" parent="Theme.FocusTycoon">
         <item name="colorPrimary">@color/purple_300</item>
         <item name="colorPrimaryVariant">@color/purple_400</item>
         <item name="colorPrimaryDark">@color/purple_600</item>
 
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+
         <item name="colorSecondary">@color/cherry_300</item>
         <item name="colorSecondaryVariant">@color/cherry_200</item>
         <item name="colorOnSecondary">@color/black</item>
 
-
         <item name="colorError">@color/cherry_700</item>
         <item name="colorErrorContainer">@color/cherry_300</item>
 
-        <!-- Status bar color. -->
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
 
-        <!-- Background        -->
         <item name="android:colorBackground">@color/purple_50</item>
         <item name="backgroundColor">@color/purple_50</item>
-
-
-
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent.Circular</item>
-        <item name="android:fontFamily">@font/louis_george_cafe_bold</item>
-        <item name="fontFamily">@font/louis_george_cafe_bold</item>
         <item name="colorControlNormal">@color/purple_700</item>
 
+    </style>
 
-        <item name="android:dialogTheme">@style/AppDialogTheme</item>
-<!--        <item name="android:alertDialogTheme">@style/AppDialogTheme</item>-->
+    <style name="Theme.FocusTycoon.Nature" parent="Theme.FocusTycoon">
+        <item name="colorPrimary">@color/nature_primary</item>
+        <item name="colorPrimaryVariant">@color/nature_primaryVariant</item>
+        <item name="colorPrimaryDark">@color/nature_primaryDark</item>
+
+        <item name="colorSecondary">@color/nature_secondary</item>
+        <item name="colorSecondaryVariant">@color/nature_secondaryVariant</item>
+
+        <item name="colorControlNormal">@color/nature_primaryDark</item>
+
+        <item name="backgroundColor">@color/nature_background</item>
+        <item name="android:colorBackground">?attr/backgroundColor</item>
+        <item name="android:statusBarColor">?attr/backgroundColor</item>
     </style>
 </resources>

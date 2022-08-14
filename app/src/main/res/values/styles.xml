@@ -16,7 +16,7 @@
     </style>
 
     <style name="AppDialogTheme" parent="Theme.Material3.Light.Dialog.MinWidth">
-        <item name="android:colorBackground">@color/purple_50</item>
-        <item name="color">@color/purple_700</item>
+        <item name="android:colorBackground">?attr/backgroundColor</item>
+        <item name="color">?attr/colorPrimaryDark</item>
     </style>
 </resources>

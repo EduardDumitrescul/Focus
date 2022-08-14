@@ -68,4 +68,17 @@
     <color name="cherry_700">#8e0049</color>
     <color name="cherry_800">#7a0043</color>
     <color name="cherry_900">#570038</color>
+
+
+    <color name="nature1">#46A094</color>
+    <color name="nature2">#6BBD99</color>
+        <color name="nature3">#AECFA4</color>
+    <color name="nature4">#C4E8C2</color>
+
+    <color name="nature_primary">#46A094</color>
+    <color name="nature_primaryVariant">#6BBD99</color>
+    <color name="nature_primaryDark">#307366</color>
+    <color name="nature_secondary">#AECFA4</color>
+    <color name="nature_secondaryVariant">#A4CFAF</color>
+    <color name="nature_background">#C4E8C2</color>
 </resources>

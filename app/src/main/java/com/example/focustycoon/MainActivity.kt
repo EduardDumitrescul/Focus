@@ -6,9 +6,11 @@ import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.focustycoon.storage.UserDataSource
 import javax.inject.Inject
 
+private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun saveData() {
+        userDataSource.saveData()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -55,11 +61,6 @@ class MainActivity : AppCompatActivity() {
         isActive = true
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        isActive = false
-    }
-
     override fun onPause() {
         super.onPause()
         userDataSource.saveData()
@@ -68,7 +69,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+        Log.d(TAG, "onStop()")
         soundService.setActivityStopped()
+        userDataSource.saveData()
         isActive = false
     }
 }

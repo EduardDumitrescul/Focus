@@ -29,7 +29,7 @@ class AlarmReceiver: BroadcastReceiver() {
 
             assert(context != null)
             val builder = NotificationCompat.Builder(context!!, MainActivity.CHANNEL_ID )
-                .setSmallIcon(R.drawable.coin_focus_48)
+                .setSmallIcon(R.drawable.focus_icon_48px)
                 .setContentTitle("Title")
                 .setContentText("text")
                 .setContentIntent(contentPendingIntent)

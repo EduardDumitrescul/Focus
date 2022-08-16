@@ -1,5 +1,6 @@
 package com.example.focustycoon.notification
 
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -21,11 +22,17 @@ class AlarmReceiver: BroadcastReceiver() {
                 return
             }
 
+            val contentIntent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            val contentPendingIntent = PendingIntent.getActivity(context, 0, contentIntent, PendingIntent.FLAG_IMMUTABLE)
+
             assert(context != null)
             val builder = NotificationCompat.Builder(context!!, MainActivity.CHANNEL_ID )
                 .setSmallIcon(R.drawable.coin_focus_48)
                 .setContentTitle("Title")
                 .setContentText("text")
+                .setContentIntent(contentPendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
             with(NotificationManagerCompat.from(context)) {

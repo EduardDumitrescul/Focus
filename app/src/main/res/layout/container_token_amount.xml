@@ -43,7 +43,7 @@
                 android:layout_marginTop="-4dp"
                 android:layout_marginBottom="-4dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/coin_focus_36"
+                android:src="@drawable/focus_icon_36px"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="W,1"
                 app:layout_constraintEnd_toEndOf="parent"

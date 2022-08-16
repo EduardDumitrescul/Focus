@@ -32,4 +32,12 @@ class SoundService @Inject constructor(private val context: Context){
         mediaPlayer = MediaPlayer.create(context, R.raw.beep2)
         mediaPlayer?.start()
     }
+
+    fun playSuccessSound() {
+        if(!activityRunning) {
+            return
+        }
+        mediaPlayer = MediaPlayer.create(context, R.raw.finish_success)
+        mediaPlayer?.start()
+    }
 }

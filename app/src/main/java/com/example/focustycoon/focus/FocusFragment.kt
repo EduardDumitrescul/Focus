@@ -159,6 +159,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
                 binding.circularSeekBar.setIsThumbVisible(true)
 
                 val earned = viewModel.taskFinished()
+                soundService.playSuccessSound()
                 showFinishedMessage(earned)
                 finishedTimer()
             }

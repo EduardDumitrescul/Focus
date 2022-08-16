@@ -144,9 +144,9 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
 
         timer?.cancel()
-        alarmManagerUtil.sendFinishedSessionNotification(viewModel.duration)
+        alarmManagerUtil.sendFinishedSessionNotification(viewModel.timeLeftLiveData.value!!)
 
-        timer = object: CountDownTimer(viewModel.duration, 1000){
+        timer = object: CountDownTimer(viewModel.timeLeftLiveData.value!!, 1000){
             override fun onTick(millisUntilFinished: Long) {
                 binding.viewmodel!!.updateTime()
                 viewModel.timeLeftLiveData.value?.let {

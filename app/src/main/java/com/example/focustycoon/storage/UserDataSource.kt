@@ -35,9 +35,10 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
     }
 
     override fun addTokens(duration: Long): Long {
-        tokenAmount.value = tokenAmount.value?.plus((duration / 300 / 1000) * getConversionRate())
+        val units = duration / 300 / 1000
+        tokenAmount.value = tokenAmount.value?.plus(units * getConversionRate())
         saveData()
-        return duration * getConversionRate()
+        return units * getConversionRate()
     }
 
 

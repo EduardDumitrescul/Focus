@@ -7,8 +7,8 @@
         <item name="fontFamily">@font/louis_george_cafe_bold</item>
 
 
-        <item name="android:dialogTheme">@style/AppDialogTheme</item>
-<!--        <item name="android:alertDialogTheme">@style/AppDialogTheme</item>-->
+        <item name="android:dialogTheme">@style/FocusTycoon.Dialog</item>
+        <item name="android:alertDialogTheme">@style/FocusTycoon.Dialog</item>
     </style>
 
     <style name="Theme.FocusTycoon.Magenta" parent="Theme.FocusTycoon">

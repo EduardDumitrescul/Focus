@@ -36,6 +36,7 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
 
     override fun addTokens(duration: Long): Long {
         tokenAmount.value = tokenAmount.value?.plus((duration / 300 / 1000) * getConversionRate())
+        saveData()
         return duration * getConversionRate()
     }
 
@@ -77,6 +78,7 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
 
     override fun setStartTime(millis: Long) {
         startTime = millis
+        saveData()
     }
 
     override fun getCurrentDuration(): Long {
@@ -85,6 +87,7 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
 
     override fun setCurrentDuration(millis: Long) {
         currentDuration = millis
+        saveData()
     }
 
     override fun getEfficiencyUpgradeCost(): Long {
@@ -125,6 +128,7 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
         }
         tokenAmount.value = tokenAmount.value!! - getEfficiencyUpgradeCost()
         efficiencyLevel.value = efficiencyLevel.value!! + 1
+        saveData()
         return true
     }
 
@@ -153,6 +157,7 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
         }
         tokenAmount.value = tokenAmount.value!! - getCapacityUpgradeCost()
         capacityLevel.value = capacityLevel.value!! + 1
+        saveData()
         return true
     }
 

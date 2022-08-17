@@ -34,8 +34,8 @@ class AlarmReceiver: BroadcastReceiver() {
             val builder = NotificationCompat.Builder(context!!, MainActivity.CHANNEL_ID )
                 .setSmallIcon(R.drawable.focus_icon_notif_48px)
                 .setLargeIcon(BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.focus_icon_notif_48px))
-                .setContentTitle("Title")
-                .setContentText("text")
+                .setContentTitle("You just completed your focused session")
+                .setContentText("Come back to get your rewards!")
                 .setContentIntent(contentPendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 

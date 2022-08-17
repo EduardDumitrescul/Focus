@@ -4,6 +4,9 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
@@ -29,7 +32,8 @@ class AlarmReceiver: BroadcastReceiver() {
 
             assert(context != null)
             val builder = NotificationCompat.Builder(context!!, MainActivity.CHANNEL_ID )
-                .setSmallIcon(R.drawable.focus_icon_48px)
+                .setSmallIcon(R.drawable.focus_icon_notif_48px)
+                .setLargeIcon(BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.focus_icon_notif_48px))
                 .setContentTitle("Title")
                 .setContentText("text")
                 .setContentIntent(contentPendingIntent)

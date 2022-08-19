@@ -26,4 +26,5 @@
     <string name="confirm_icon">confirm icon</string>
     <string name="channel_name">session finished channel</string>
     <string name="channel_description">A channel for sending notifications when sessions are completed.</string>
+    <string name="settings_button">settings button</string>
 </resources>

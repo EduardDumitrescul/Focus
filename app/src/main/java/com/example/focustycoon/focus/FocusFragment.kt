@@ -1,6 +1,7 @@
 package com.example.focustycoon.focus
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -19,6 +20,7 @@ import com.example.focustycoon.SoundService
 import com.example.focustycoon.databinding.FragmentFocusBinding
 import com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment
 import com.example.focustycoon.notification.AlarmManagerUtil
+import com.example.focustycoon.settings.SettingsActivity
 import com.example.focustycoon.utils.StringConverterUtil
 import javax.inject.Inject
 
@@ -59,6 +61,11 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
+    }
+
+    fun startSettingsActivity() {
+        val intent = Intent(context, SettingsActivity::class.java)
+        startActivity(intent)
     }
 
 

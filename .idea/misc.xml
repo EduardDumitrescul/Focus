@@ -19,15 +19,17 @@
         <entry key="app/src/main/res/drawable/round_add_20.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_add_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_add_circle_outline_20.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/settings_48px.xml" value="0.2515" />
         <entry key="app/src/main/res/font-v26/louis_george_cafe.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/font/louis_george_cafe.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3079710144927536" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.3546875" />
         <entry key="app/src/main/res/layout/cardview_upgrade.xml" value="0.75" />
         <entry key="app/src/main/res/layout/confirm_stop_dialog.xml" value="0.2006340579710145" />
         <entry key="app/src/main/res/layout/container_token_amount.xml" value="0.5" />
         <entry key="app/src/main/res/layout/dialog_confirm_stop.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dialog_upgrades.xml" value="0.284375" />
-        <entry key="app/src/main/res/layout/fragment_focus.xml" value="0.25842696629213485" />
+        <entry key="app/src/main/res/layout/fragment_focus.xml" value="0.531104199066874" />
       </map>
     </option>
   </component>

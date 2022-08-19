@@ -82,7 +82,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             setupNormalTimer()
         }
         else if(viewModel.duration > 0) {
-            viewModel.taskFinished()
+            finishedTimer()
         }
     }
 
@@ -124,8 +124,9 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
         viewModel.startTime = System.currentTimeMillis()
 
-        setupNormalTimer()
         setupCancelTimer()
+        setupNormalTimer()
+
 
     }
 
@@ -155,12 +156,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             }
 
             override fun onFinish() {
-                binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
-                binding.circularSeekBar.setIsThumbVisible(true)
-
-                val earned = viewModel.taskFinished()
-                soundService.playSuccessSound()
-                showFinishedMessage(earned)
+                Log.d(TAG, "onFinish()")
                 finishedTimer()
             }
         }.start()
@@ -204,6 +200,10 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     }
 
     private fun finishedTimer() {
+        val earned = viewModel.taskFinished()
+        soundService.playSuccessSound()
+        showFinishedMessage(earned)
+
         binding.circularSeekBar.setIsLocked(CircularSeekBar.MODE_UNLOCKED)
         binding.circularSeekBar.setIsThumbVisible(true)
         binding.circularSeekBar.setValue(0)

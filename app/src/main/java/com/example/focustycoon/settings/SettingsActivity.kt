@@ -11,19 +11,28 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.ActivitySettingsBinding
+import javax.inject.Inject
 
 
 class SettingsActivity: AppCompatActivity() {
     lateinit var binding: ActivitySettingsBinding
 
+    @Inject lateinit var globalSettings: GlobalSettings
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (application as MainApplication).appComponent.inject(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_settings)
         binding.activity = this
+        binding.soundSwitch.isChecked = globalSettings.soundEnabled
+        binding.soundSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            globalSettings.soundEnabled = isChecked
+        }
     }
-
 
     fun openPrivacyPolicy() {
         val browserIntent = Intent(Intent.ACTION_VIEW)

@@ -1,6 +1,7 @@
 package com.example.focustycoon.dagger
 
 import android.content.SharedPreferences
+import com.example.focustycoon.settings.GlobalSettings
 import com.example.focustycoon.storage.UserDataSource
 import dagger.Module
 import dagger.Provides
@@ -12,5 +13,11 @@ class StorageModule {
     @Singleton
     fun provideUserDataSource(sharedPreferences: SharedPreferences): UserDataSource {
         return UserDataSource(sharedPreferences)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGlobalSetting(sharedPreferences: SharedPreferences): GlobalSettings {
+        return GlobalSettings(sharedPreferences)
     }
 }

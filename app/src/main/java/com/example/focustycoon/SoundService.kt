@@ -2,11 +2,11 @@ package com.example.focustycoon
 
 import android.content.Context
 import android.media.MediaPlayer
+import com.example.focustycoon.settings.GlobalSettings
 import javax.inject.Inject
 
-class SoundService @Inject constructor(private val context: Context){
+class SoundService @Inject constructor(private val context: Context, private val globalSettings: GlobalSettings){
     private var mediaPlayer: MediaPlayer? = null
-
     private var activityRunning: Boolean = true
 
     fun setActivityStopped() {
@@ -18,7 +18,7 @@ class SoundService @Inject constructor(private val context: Context){
     }
 
     fun playTimerTick1() {
-        if(!activityRunning) {
+        if(!activityRunning || !globalSettings.soundEnabled) {
              return
         }
         mediaPlayer = MediaPlayer.create(context, R.raw.beep1)
@@ -26,7 +26,7 @@ class SoundService @Inject constructor(private val context: Context){
     }
 
     fun playTimerTick2() {
-        if(!activityRunning) {
+        if(!activityRunning || !globalSettings.soundEnabled) {
             return
         }
         mediaPlayer = MediaPlayer.create(context, R.raw.beep2)
@@ -34,7 +34,7 @@ class SoundService @Inject constructor(private val context: Context){
     }
 
     fun playSuccessSound() {
-        if(!activityRunning) {
+        if(!activityRunning || !globalSettings.soundEnabled) {
             return
         }
         mediaPlayer = MediaPlayer.create(context, R.raw.finish_success)

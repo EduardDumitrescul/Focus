@@ -27,4 +27,6 @@
     <string name="channel_name">session finished channel</string>
     <string name="channel_description">A channel for sending notifications when sessions are completed.</string>
     <string name="settings_button">settings button</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_and_conditions"><![CDATA[Terms & Conditions]]></string>
 </resources>

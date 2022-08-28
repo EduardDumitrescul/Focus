@@ -21,6 +21,14 @@
             android:enabled="true"
             android:textSize="32sp"/>
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/notification_switch"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Notifications"
+            android:enabled="true"
+            android:textSize="32sp"/>
+
 
         <TextView
             android:layout_width="wrap_content"

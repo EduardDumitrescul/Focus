@@ -22,7 +22,6 @@ class SettingsActivity: AppCompatActivity() {
 
     @Inject lateinit var globalSettings: GlobalSettings
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as MainApplication).appComponent.inject(this)
@@ -31,6 +30,11 @@ class SettingsActivity: AppCompatActivity() {
         binding.soundSwitch.isChecked = globalSettings.soundEnabled
         binding.soundSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             globalSettings.soundEnabled = isChecked
+        }
+        binding.notificationSwitch.isChecked = globalSettings.notificationsEnabled
+        binding.notificationSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            globalSettings.notificationsEnabled = isChecked
+
         }
     }
 

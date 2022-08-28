@@ -38,8 +38,10 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideAlarmManagerUtil(application: Application): AlarmManagerUtil {
-        return AlarmManagerUtil(application.applicationContext)
+    fun provideAlarmManagerUtil(application: Application, sharedPreferences: SharedPreferences): AlarmManagerUtil {
+        if(globalSettings == null)
+            globalSettings = GlobalSettings(sharedPreferences)
+        return AlarmManagerUtil(application.applicationContext, globalSettings!!)
     }
 
     @Provides

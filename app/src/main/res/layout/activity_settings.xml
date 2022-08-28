@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="Sound"
-            android:enabled="true"
+            android:checked="true"
             android:textSize="32sp"/>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="Notifications"
-            android:enabled="true"
+            android:checked="true"
             android:textSize="32sp"/>
 
 

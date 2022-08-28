@@ -24,4 +24,13 @@
         <!-- For drawable -->
         <item name="colorControlNormal">?attr/colorPrimaryDark</item>
     </style>
+
+    <style name="Focus.Switch" parent="Widget.Material3.CompoundButton.Switch">
+       <item name="android:textColor">?android:attr/textColorTertiary</item>
+
+    </style>
+
+    <style name="Focus.TextView" parent="">
+        <item name="android:textColor">?android:attr/textColorTertiary</item>
+    </style>
 </resources>

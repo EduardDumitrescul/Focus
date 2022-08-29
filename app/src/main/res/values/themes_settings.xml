@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Focus.Nature.Settings" parent="Theme.Focus.Nature">
-        <item name="android:textViewStyle">@style/TextAppearance.App.BodyMedium</item>
+        <item name="android:textViewStyle">@style/TextAppearance.App.BodyLarge</item>
         <item name="switchStyle">@style/App.Switch</item>
+        <item name="toolbarStyle">@style/App.Toolbar</item>
     </style>
 </resources>

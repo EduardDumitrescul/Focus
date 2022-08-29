@@ -27,11 +27,25 @@
 
     <style name="App.Switch" parent="Widget.Material3.CompoundButton.Switch">
        <item name="android:textColor">?android:attr/textColorTertiary</item>
-        <item name="android:textAppearance">@style/TextAppearance.App.BodyMedium</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.BodyLarge</item>
 
     </style>
 
     <style name="App.TextView" parent="">
         <item name="android:textColor">?android:attr/textColorTertiary</item>
     </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorPrimary">@color/nature_background</item>
+        <item name="colorPrimaryVariant">@color/nature_primaryVariant</item>-->
+        <item name="colorOnPrimary">@color/nature_primaryDark</item>
+    </style>
+
+    <style name="App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="titleTextAppearance">@style/TextAppearance.App.HeadlineMedium</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.App.HeadlineMedium</item>
+    </style>
+
+
 </resources>

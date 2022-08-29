@@ -4,5 +4,6 @@
         <item name="android:textViewStyle">@style/App.TextView.BodyLarge</item>
         <item name="switchStyle">@style/App.Switch</item>
         <item name="toolbarStyle">@style/App.Toolbar</item>
+        <item name="dividerPadding">8dp</item>
     </style>
 </resources>

@@ -32,7 +32,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="44sp"
+            android:textAppearance="@style/TextAppearance.App.DisplayMedium"
             app:layout_constraintBottom_toBottomOf="@+id/circularSeekBar"
             app:layout_constraintEnd_toEndOf="@+id/circularSeekBar"
             app:layout_constraintStart_toStartOf="@+id/circularSeekBar"

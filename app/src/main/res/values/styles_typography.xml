@@ -32,7 +32,7 @@
     <style name="TextAppearance.App.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
         <item name="fontFamily">@font/louis_george_cafe</item>
     </style>
-    <style name="TextAppearance.App.TitleSmall." parent="TextAppearance.Material3.TitleSmall">
+    <style name="TextAppearance.App.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
         <item name="fontFamily">@font/louis_george_cafe</item>
     </style>
 

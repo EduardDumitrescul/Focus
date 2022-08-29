@@ -15,22 +15,23 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="FocusTycoon.Button" parent="ThemeOverlay.Material3.Button">
+    <style name="App.Button" parent="ThemeOverlay.Material3.Button">
         <item name="backgroundTint">?attr/colorPrimaryDark</item>
     </style>
 
-    <style name="FocusTycoon.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
+    <style name="App.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
         <item name="colorPrimary">?attr/colorPrimaryDark</item>
         <!-- For drawable -->
         <item name="colorControlNormal">?attr/colorPrimaryDark</item>
     </style>
 
-    <style name="Focus.Switch" parent="Widget.Material3.CompoundButton.Switch">
+    <style name="App.Switch" parent="Widget.Material3.CompoundButton.Switch">
        <item name="android:textColor">?android:attr/textColorTertiary</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.BodyMedium</item>
 
     </style>
 
-    <style name="Focus.TextView" parent="">
+    <style name="App.TextView" parent="">
         <item name="android:textColor">?android:attr/textColorTertiary</item>
     </style>
 </resources>

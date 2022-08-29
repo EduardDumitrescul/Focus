@@ -35,16 +35,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Sound"
-                android:textSize="32sp" />
+                android:text="Sound"/>
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/notification_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Notifications"
-                android:textSize="32sp" />
+                android:text="Notifications" />
 
 
             <TextView

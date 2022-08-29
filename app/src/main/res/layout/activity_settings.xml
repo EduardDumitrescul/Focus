@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="activity"
             type="com.example.focustycoon.settings.SettingsActivity" />
     </data>
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="16sp"
-        android:layout_marginVertical="8dp">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/sound_switch"
-            android:layout_height="wrap_content"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:text="Sound"
-            android:checked="true"
-            android:textSize="32sp"/>
+            android:layout_height="wrap_content">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/arrow_back_40px"
+                app:title="Settings"/>
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/notification_switch"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:text="Notifications"
-            android:checked="true"
-            android:textSize="32sp"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/privacy_policy"
-            android:textSize="32sp"
-            android:paddingVertical="4dp"
-            android:onClick="@{() -> activity.openPrivacyPolicy()}"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_marginHorizontal="16sp"
+            android:layout_marginVertical="8dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/terms_and_conditions"
-            android:textSize="32sp"
-            android:paddingVertical="4dp"
-            android:onClick="@{() -> activity.openTermsAndConditions()}"/>
-    </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sound_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Sound"
+                android:textSize="32sp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/notification_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Notifications"
+                android:textSize="32sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> activity.openPrivacyPolicy()}"
+                android:paddingVertical="4dp"
+                android:text="@string/privacy_policy"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> activity.openTermsAndConditions()}"
+                android:paddingVertical="4dp"
+                android:text="@string/terms_and_conditions"
+                android:textSize="32sp" />
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 </layout>

@@ -11,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.ActivitySettingsBinding
@@ -36,6 +38,11 @@ class SettingsActivity: AppCompatActivity() {
             globalSettings.notificationsEnabled = isChecked
 
         }
+
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+
     }
 
     fun openPrivacyPolicy() {

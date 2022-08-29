@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.App.TitleLarge"
+                style="@style/App.TextView.TitleLarge"
                 android:text="Customize"/>
 
             <com.google.android.material.switchmaterial.SwitchMaterial
@@ -61,20 +61,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.App.TitleLarge"
+                style="@style/App.TextView.TitleLarge"
                 android:text="About Focus"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> activity.openPrivacyPolicy()}"
-                android:text="@string/privacy_policy" />
+                android:text="@string/privacy_policy"
+                style="@style/App.TextView.BodyLarge"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> activity.openTermsAndConditions()}"
-                android:text="@string/terms_and_conditions" />
+                android:text="@string/terms_and_conditions"
+                style="@style/App.TextView.BodyLarge" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
@@ -83,14 +85,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.App.TitleLarge"
+                style="@style/App.TextView.TitleLarge"
                 android:text="Contact"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="email"
-                android:text="thinker.byte.apps@gmail.com"/>
+                android:text="thinker.byte.apps@gmail.com"
+
+                style="@style/App.TextView.BodyLarge"/>
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

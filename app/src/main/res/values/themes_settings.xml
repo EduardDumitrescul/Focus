@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Focus.Nature.Settings" parent="Theme.Focus.Nature">
-        <item name="android:textViewStyle">@style/App.TextView.BodyLarge</item>
         <item name="switchStyle">@style/App.Switch</item>
         <item name="toolbarStyle">@style/App.Toolbar</item>
+        <item name="android:toolbarStyle">@style/App.Toolbar</item>
         <item name="dividerPadding">8dp</item>
     </style>
 </resources>

@@ -38,14 +38,14 @@
     <style name="App.TextView.BodyLarge" parent="App.TextView">
         <item name="android:textAppearance">@style/TextAppearance.App.BodyLarge</item>
         <item name="android:paddingStart">4dp</item>
-        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">12dp</item>
     </style>
     <style name="App.TextView.TitleLarge" parent="App.TextView">
         <item name="android:textAppearance">@style/TextAppearance.App.TitleLarge</item>
         <item name="android:paddingStart">4dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">16dp</item>
     </style>
 
     <style name="ThemeOverlay.App.Toolbar" parent="">
@@ -58,6 +58,7 @@
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
         <item name="titleTextAppearance">@style/TextAppearance.App.HeadlineMedium</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.App.HeadlineMedium</item>
+        <item name="android:textViewStyle">@style/App.TextView</item>
     </style>
 
 

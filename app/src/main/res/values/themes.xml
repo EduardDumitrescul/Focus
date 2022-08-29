@@ -11,7 +11,7 @@
         <item name="android:alertDialogTheme">@style/FocusTycoon.Dialog</item>
         <item name="android:textViewStyle">@style/Focus.TextView</item>
 
-
+        <!-- TYPOGRAPHY -->
         <item name="textAppearanceDisplayLarge">@style/TextAppearance.App.DisplayLarge</item>
         <item name="textAppearanceDisplayMedium">@style/TextAppearance.App.DisplayMedium</item>
         <item name="textAppearanceDisplaySmall">@style/TextAppearance.App.DisplaySmall</item>

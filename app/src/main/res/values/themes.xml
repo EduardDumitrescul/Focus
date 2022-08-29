@@ -6,10 +6,8 @@
         <item name="android:fontFamily">@font/louis_george_cafe_bold</item>
         <item name="fontFamily">@font/louis_george_cafe_bold</item>
 
-        <item name="switchStyle">@style/App.Switch</item>
         <item name="android:dialogTheme">@style/App.Dialog</item>
         <item name="android:alertDialogTheme">@style/App.Dialog</item>
-        <item name="android:textViewStyle">@style/App.TextView</item>
 
         <!-- TYPOGRAPHY -->
         <item name="textAppearanceDisplayLarge">@style/TextAppearance.App.DisplayLarge</item>
@@ -51,7 +49,7 @@
 
     </style>
 
-    <style name="Theme.FocusTycoon.Nature" parent="Theme.FocusTycoon">
+    <style name="Theme.Focus.Nature" parent="Theme.FocusTycoon">
         <item name="colorPrimary">@color/nature_primary</item>
         <item name="colorPrimaryVariant">@color/nature_primaryVariant</item>
         <item name="colorPrimaryDark">@color/nature_primaryDark</item>

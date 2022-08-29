@@ -50,16 +50,14 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> activity.openPrivacyPolicy()}"
                 android:paddingVertical="4dp"
-                android:text="@string/privacy_policy"
-                android:textSize="32sp" />
+                android:text="@string/privacy_policy" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> activity.openTermsAndConditions()}"
                 android:paddingVertical="4dp"
-                android:text="@string/terms_and_conditions"
-                android:textSize="32sp" />
+                android:text="@string/terms_and_conditions" />
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -12,6 +12,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.focustycoon.MainActivity
+import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 
 class AlarmReceiver: BroadcastReceiver() {
@@ -21,7 +22,7 @@ class AlarmReceiver: BroadcastReceiver() {
         }
         else {
             // don't send notification if app is running
-            if(MainActivity.isActive) {
+            if(MainApplication.isActive) {
                 return
             }
 

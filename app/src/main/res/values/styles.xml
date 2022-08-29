@@ -35,6 +35,19 @@
         <item name="android:textColor">?android:attr/textColorTertiary</item>
     </style>
 
+    <style name="App.TextView.BodyLarge" parent="App.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.App.BodyLarge</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+    <style name="App.TextView.TitleLarge" parent="App.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.App.TitleLarge</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
     <style name="ThemeOverlay.App.Toolbar" parent="">
         <item name="colorPrimary">@color/nature_background</item>
         <item name="colorPrimaryVariant">@color/nature_primaryVariant</item>-->

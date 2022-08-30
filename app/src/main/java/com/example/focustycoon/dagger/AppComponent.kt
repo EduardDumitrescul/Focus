@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.focustycoon.focus.FocusFragment
 import com.example.focustycoon.MainActivity
 import com.example.focustycoon.focus.upgrade.UpgradeDialogFragment
+import com.example.focustycoon.settings.PolicyConfirmDialog
 import com.example.focustycoon.settings.SettingsActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -20,4 +21,7 @@ interface AppComponent {
     fun inject(fragment: FocusFragment)
     fun inject(dialogFragment: UpgradeDialogFragment)
     fun inject(activity: SettingsActivity)
+    fun inject(dialogFragment: PolicyConfirmDialog) {
+
+    }
 }

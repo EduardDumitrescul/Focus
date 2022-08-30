@@ -20,6 +20,7 @@ import com.example.focustycoon.SoundService
 import com.example.focustycoon.databinding.FragmentFocusBinding
 import com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment
 import com.example.focustycoon.notification.AlarmManagerUtil
+import com.example.focustycoon.settings.GlobalSettings
 import com.example.focustycoon.settings.SettingsActivity
 import com.example.focustycoon.utils.StringConverterUtil
 import javax.inject.Inject
@@ -34,6 +35,8 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     lateinit var viewModel: FocusViewModel
     @Inject
     lateinit var alarmManagerUtil: AlarmManagerUtil
+    @Inject
+    lateinit var globalSettings: GlobalSettings
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -72,6 +75,7 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        openConfirmPrivacyDialog()
         binding.circularSeekBar.setOnChangeListener(this)
         viewModel.timeLeftLiveData.observe(viewLifecycleOwner) {
             setTimerValue(it)
@@ -92,6 +96,17 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             getReward()
             finishedTimer()
         }
+
+
+
+    }
+
+
+    private fun openConfirmPrivacyDialog() {
+        if(globalSettings.policyConfirmed) {
+            return
+        }
+        findNavController().navigate(R.id.openPolicyConfirmDialog)
     }
 
     private fun setTimerValue(value: Long) {

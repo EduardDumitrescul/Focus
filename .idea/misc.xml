@@ -28,6 +28,7 @@
         <entry key="app/src/main/res/layout/confirm_stop_dialog.xml" value="0.2006340579710145" />
         <entry key="app/src/main/res/layout/container_token_amount.xml" value="0.5" />
         <entry key="app/src/main/res/layout/dialog_confirm_stop.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/dialog_policy_confirm.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/dialog_upgrades.xml" value="0.284375" />
         <entry key="app/src/main/res/layout/fragment_focus.xml" value="0.33" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2065" />

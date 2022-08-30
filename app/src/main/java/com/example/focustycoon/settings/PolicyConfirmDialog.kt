@@ -1,6 +1,10 @@
 package com.example.focustycoon.settings
 
 import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +41,7 @@ class PolicyConfirmDialog: DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.setCancelable(false)
         dialog?.setCanceledOnTouchOutside(false)
     }
@@ -44,5 +49,17 @@ class PolicyConfirmDialog: DialogFragment() {
     fun accept() {
         globalSettings.policyConfirmed = true
         findNavController().navigateUp()
+    }
+
+    fun openPrivacyPolicy() {
+        val browserIntent = Intent(Intent.ACTION_VIEW)
+        browserIntent.data = Uri.parse("https://github.com/EduardDumitrescul/Focus-public/blob/main/privacy_policy.md")
+        startActivity(browserIntent)
+    }
+
+    fun openTermsAndConditions() {
+        val browserIntent = Intent(Intent.ACTION_VIEW)
+        browserIntent.data = Uri.parse("https://github.com/EduardDumitrescul/Focus-public/blob/main/terms_and_conditions.md")
+        startActivity(browserIntent)
     }
 }

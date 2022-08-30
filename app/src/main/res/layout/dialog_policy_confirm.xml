@@ -9,24 +9,32 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/dialog_rounded_background"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="By clicking the Accept Button, you agree to our Terms and Conditions and Privacy Policy."/>
+            style="@style/App.TextView.BodyLarge"
+            android:text="By clicking Accept, you agree to our Terms &amp; Conditions and Privacy Policy."/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
-            android:text="@string/privacy_policy"/>
+            style="@style/App.TextView.BodyLarge"
+            android:text="@string/privacy_policy"
+            android:onClick="@{() -> dialog.openPrivacyPolicy()}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
-            android:text="@string/terms_and_conditions"/>
+            style="@style/App.TextView.BodyLarge"
+            android:text="@string/terms_and_conditions"
+            android:onClick="@{() -> dialog.openTermsAndConditions()}"/>
 
         <Button
             android:layout_width="wrap_content"

@@ -183,7 +183,6 @@ class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
             }
 
             override fun onFinish() {
-                Log.d(TAG, "onFinish()")
                 getReward()
                 finishedTimer()
             }

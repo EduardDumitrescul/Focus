@@ -72,7 +72,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        soundService.setActivityResumed()
         isActive = true
     }
 
@@ -84,8 +83,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, "onStop()")
-        soundService.setActivityStopped()
         userDataSource.saveData()
         isActive = false
     }

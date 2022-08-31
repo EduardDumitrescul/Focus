@@ -49,7 +49,6 @@ class MainApplication: Application() {
             }
 
             override fun onActivityDestroyed(activity: Activity) {
-                Log.d(TAG, "onActivityDestroyed()")
                 currentActivity = null
                 if(activity is MainActivity)
                     activity.saveData()

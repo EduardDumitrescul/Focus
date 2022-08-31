@@ -7,18 +7,9 @@ import javax.inject.Inject
 
 class SoundService @Inject constructor(private val context: Context, private val globalSettings: GlobalSettings){
     private var mediaPlayer: MediaPlayer? = null
-    private var activityRunning: Boolean = true
-
-    fun setActivityStopped() {
-        activityRunning = false
-    }
-
-    fun setActivityResumed() {
-        activityRunning = true
-    }
 
     fun playTimerTick1() {
-        if(!activityRunning || !globalSettings.soundEnabled) {
+        if(!MainApplication.isActive || !globalSettings.soundEnabled) {
              return
         }
         mediaPlayer = MediaPlayer.create(context, R.raw.beep1)
@@ -26,7 +17,7 @@ class SoundService @Inject constructor(private val context: Context, private val
     }
 
     fun playTimerTick2() {
-        if(!activityRunning || !globalSettings.soundEnabled) {
+        if(!MainApplication.isActive || !globalSettings.soundEnabled) {
             return
         }
         mediaPlayer = MediaPlayer.create(context, R.raw.beep2)
@@ -34,7 +25,7 @@ class SoundService @Inject constructor(private val context: Context, private val
     }
 
     fun playSuccessSound() {
-        if(!activityRunning || !globalSettings.soundEnabled) {
+        if(!MainApplication.isActive || !globalSettings.soundEnabled) {
             return
         }
         mediaPlayer = MediaPlayer.create(context, R.raw.finish_success)

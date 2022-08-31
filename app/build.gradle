@@ -8,7 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.focustycoon"
+        applicationId "com.thinkerbyte.focustycoon"
         minSdk 22
         targetSdk 32
         versionCode 1

@@ -32,7 +32,11 @@ class AlarmReceiver: BroadcastReceiver() {
                 addCategory(Intent.CATEGORY_LAUNCHER)
             }
 
-            val contentPendingIntent = PendingIntent.getActivity(context, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            val contentPendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                PendingIntent.getActivity(context, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
+            } else {
+                PendingIntent.getActivity(context, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            }
 
             assert(context != null)
             val builder = NotificationCompat.Builder(context!!, MainActivity.CHANNEL_ID )

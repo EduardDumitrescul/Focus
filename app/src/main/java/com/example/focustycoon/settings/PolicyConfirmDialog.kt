@@ -54,12 +54,22 @@ class PolicyConfirmDialog: DialogFragment() {
     fun openPrivacyPolicy() {
         val browserIntent = Intent(Intent.ACTION_VIEW)
         browserIntent.data = Uri.parse("https://github.com/EduardDumitrescul/Focus-public/blob/main/privacy_policy.md")
-        startActivity(browserIntent)
+        try {
+            startActivity(browserIntent)
+        }
+        catch(exception: Exception) {
+
+        }
     }
 
     fun openTermsAndConditions() {
         val browserIntent = Intent(Intent.ACTION_VIEW)
         browserIntent.data = Uri.parse("https://github.com/EduardDumitrescul/Focus-public/blob/main/terms_and_conditions.md")
-        startActivity(browserIntent)
+        try {
+            startActivity(browserIntent)
+        }
+        catch(exception: Exception) {
+
+        }
     }
 }

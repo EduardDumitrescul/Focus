@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/App.TextView.BodyLarge"
-            android:text="By clicking Accept, you agree to our Terms &amp; Conditions and Privacy Policy."/>
+            android:text="@string/terms_conditions_request"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,9 +39,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:onClick="@{() -> dialog.accept()}"
-            android:text="Accept"/>
+            android:text="@string/accept"/>
 
 
     </LinearLayout>

@@ -29,4 +29,13 @@
     <string name="settings_button">settings button</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="terms_and_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="notification_disclaimer">Notifications aren\'t working properly on some phone models due to the Manufacturer\'s battery saving settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="about_focus">About Focus</string>
+    <string name="contact">Contact</string>
+    <string name="company_email">thinker.byte.apps@gmail.com</string>
+    <string name="sound">Sound</string>
+    <string name="customize">Customize</string>
+    <string name="accept">Accept</string>
+    <string name="terms_conditions_request"><![CDATA[By clicking Accept, you agree to our Terms & Conditions and Privacy Policy.]]></string>
 </resources>

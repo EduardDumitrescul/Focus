@@ -38,21 +38,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/App.TextView.TitleLarge"
-                android:text="Customize"/>
+                android:text="@string/customize"/>
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/sound_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Sound"/>
+                android:text="@string/sound"/>
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/notification_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Notifications" />
+                android:text="@string/notifications" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.App.BodySmall"
+                android:text="@string/notification_disclaimer"/>
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
@@ -62,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/App.TextView.TitleLarge"
-                android:text="About Focus"/>
+                android:text="@string/about_focus"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -86,13 +92,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/App.TextView.TitleLarge"
-                android:text="Contact"/>
+                android:text="@string/contact"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="email"
-                android:text="thinker.byte.apps@gmail.com"
+                android:text="@string/company_email"
 
                 style="@style/App.TextView.BodyLarge"/>
         </LinearLayout>

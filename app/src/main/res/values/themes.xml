@@ -27,7 +27,7 @@
         <item name="textAppearanceLabelSmall">@style/TextAppearance.App.LabelSmall</item>
     </style>
 
-    <style name="Theme.FocusTycoon.Magenta" parent="Theme.FocusTycoon">
+    <style name="Theme.Focus.Magenta" parent="Theme.FocusTycoon">
         <item name="colorPrimary">@color/purple_300</item>
         <item name="colorPrimaryVariant">@color/purple_400</item>
         <item name="colorPrimaryDark">@color/purple_600</item>
@@ -53,6 +53,7 @@
         <item name="colorPrimary">@color/nature_primary</item>
         <item name="colorPrimaryVariant">@color/nature_primaryVariant</item>
         <item name="colorPrimaryDark">@color/nature_primaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
 
         <item name="colorSecondary">@color/nature_secondary</item>
         <item name="colorSecondaryVariant">@color/nature_secondaryVariant</item>

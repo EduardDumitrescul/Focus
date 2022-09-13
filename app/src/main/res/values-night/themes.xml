@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Focus.Nature" parent ="Theme.FocusTycoon">
+        <item name="colorPrimary">@color/nature_primary</item>
+        <item name="colorPrimaryVariant">@color/nature_primaryVariant</item>
+        <item name="colorPrimaryDark">@color/nature_primaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/nature_secondary</item>
+        <item name="colorSecondaryVariant">@color/nature_secondaryVariant</item>
+
+        <item name="colorControlNormal">@color/nature_primaryDark</item>
+        <item name="colorControlActivated">@color/nature_primaryDark</item>
+
+        <item name="android:textColorPrimary">#111111</item>
+        <item name="android:textColorSecondary">#222222</item>
+        <item name="android:textColorTertiary">#333333</item>
+
+
+        <item name="colorPrimaryContainer">@color/nature_secondary</item>
+        <item name="colorOutline">@color/nature_secondaryVariant</item>
+        <item name="colorSurface">@color/nature_secondary</item>
+        <item name="colorOnSurface">@color/nature_secondaryVariant</item>
+
+        <item name="backgroundColor">@color/nature_background</item>
+        <item name="android:colorBackground">?attr/backgroundColor</item>
+        <item name="android:statusBarColor">?attr/backgroundColor</item>
+    </style>
+</resources>

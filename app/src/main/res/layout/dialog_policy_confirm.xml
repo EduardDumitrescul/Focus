@@ -3,7 +3,7 @@
     <data>
         <variable
             name="dialog"
-            type="com.example.focustycoon.settings.PolicyConfirmDialog" />
+            type="com.example.focus.settings.PolicyConfirmDialog" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

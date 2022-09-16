@@ -5,10 +5,10 @@
     <data>
         <variable
             name="fragment"
-            type="com.example.focustycoon.focus.FocusFragment" />
+            type="com.example.focus.focus.FocusFragment" />
         <variable
             name="viewmodel"
-            type="com.example.focustycoon.focus.FocusViewModel" />
+            type="com.example.focus.focus.FocusViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="dialog"
-            type="com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment" />
+            type="com.example.focus.focus.cancel_warning.ConfirmStopDialogFragment" />
     </data>
 
 

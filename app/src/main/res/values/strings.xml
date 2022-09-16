@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FocusTycoon</string>
+    <string name="app_name">Focus</string>
     <string name="upgrade_icon">upgrade icon</string>
     <string name="upgrade_text">UPGRADE</string>
     <string name="level">level</string>

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.focustycoon.settings.SettingsActivity" />
+            type="com.example.focus.settings.SettingsActivity" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

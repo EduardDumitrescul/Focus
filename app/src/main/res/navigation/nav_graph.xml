@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/focusFragment"
-        android:name="com.example.focustycoon.focus.FocusFragment"
+        android:name="com.example.focus.focus.FocusFragment"
         android:label="FocusFragment" >
         <action
             android:id="@+id/openUpgradeDialog"
@@ -20,14 +20,14 @@
     </fragment>
     <dialog
         android:id="@+id/upgradeDialogFragment"
-        android:name="com.example.focustycoon.focus.upgrade.UpgradeDialogFragment"
+        android:name="com.example.focus.focus.upgrade.UpgradeDialogFragment"
         android:label="UpgradeDialogFragment" />
     <dialog
         android:id="@+id/confirmStopDialogFragment"
-        android:name="com.example.focustycoon.focus.cancel_warning.ConfirmStopDialogFragment"
+        android:name="com.example.focus.focus.cancel_warning.ConfirmStopDialogFragment"
         android:label="ConfirmStopDialogFragment" />
     <dialog
         android:id="@+id/openPolicyConfirmDialog"
-        android:name="com.example.focustycoon.settings.PolicyConfirmDialog"
+        android:name="com.example.focus.settings.PolicyConfirmDialog"
         android:label="PolicyConfirmDialog" />
 </navigation>

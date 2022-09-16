@@ -17,7 +17,7 @@ class GlobalSettings @Inject constructor(private val sharedPreferences: SharedPr
         }
     }
 
-    var notificationsEnabled: Boolean = sharedPreferences.getBoolean(NOTIFICATIONS_ENABLED_KEY, true)
+    var notificationsEnabled: Boolean = sharedPreferences.getBoolean(NOTIFICATIONS_ENABLED_KEY, false)
     set(value) {
         field = value
         sharedPreferences.edit {

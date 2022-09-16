@@ -13,7 +13,8 @@ private const val START_TIME_KEY = "start_time"
 private const val CURRENT_DURATION_KEY = "current_duration"
 
 private const val TAG = "UserDataSource"
-private const val BASE_COST: Int = 10
+private const val BASE_COST: Int = 100
+private const val BASE_COST_CAPACITY: Int = 10
 
 class UserDataSource @Inject constructor(private var sharedPreferences: SharedPreferences): UserRepository {
 
@@ -124,9 +125,9 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
     /** Returns true if successful, false otherwise */
     override fun upgradeEfficiency(): Boolean {
         assert(tokenAmount.value != null)
-        if(tokenAmount.value!! < getEfficiencyUpgradeCost()){
-            return false
-        }
+//        if(tokenAmount.value!! < getEfficiencyUpgradeCost()){
+//            return false
+//        }
         tokenAmount.value = tokenAmount.value!! - getEfficiencyUpgradeCost()
         efficiencyLevel.value = efficiencyLevel.value!! + 1
         saveData()
@@ -140,19 +141,19 @@ class UserDataSource @Inject constructor(private var sharedPreferences: SharedPr
     override fun getCapacityUpgradeCost(): Long {
         assert(capacityLevel.value != null)
         val level = capacityLevel.value!!
-        return (2.0.pow(level + 1) * getMaxCapacity()).toLong()
+        return BASE_COST_CAPACITY * (2.0.pow(level + 1) * getMaxCapacity()).toLong()
     }
 
     override fun getCapacityUpgradeCost(level: Int): Long {
-        return (2.0.pow(level + 1) * getMaxCapacity()).toLong()
+        return BASE_COST_CAPACITY * (2.0.pow(level + 1) * getMaxCapacity()).toLong()
     }
 
     /** Returns true if successful, false otherwise */
     override fun upgradeCapacity(): Boolean {
         assert(tokenAmount.value != null)
-        if(tokenAmount.value!! < getCapacityUpgradeCost()){
-            return false
-        }
+//        if(tokenAmount.value!! < getCapacityUpgradeCost()){
+//            return false
+//        }
         if(capacityLevel.value == 11) {
             return false
         }

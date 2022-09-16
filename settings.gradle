@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "FocusTycoon"
+rootProject.name = "Focus"
 include ':app'

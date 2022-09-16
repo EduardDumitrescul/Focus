@@ -1,12 +1,9 @@
 package com.example.focustycoon.focus
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.focustycoon.storage.UserDataSource
 import javax.inject.Inject
-
-private const val TAG = "FocusViewModel"
 
 class FocusViewModel @Inject constructor(private val userDataSource: UserDataSource): ViewModel() {
 

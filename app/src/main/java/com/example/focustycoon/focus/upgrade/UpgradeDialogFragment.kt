@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,8 +16,6 @@ import com.example.focustycoon.databinding.DialogUpgradesBinding
 import com.example.focustycoon.storage.UserDataSource
 import com.example.focustycoon.utils.StringConverterUtil
 import javax.inject.Inject
-
-private const val TAG = "UpgradeDialogFragment"
 
 class UpgradeDialogFragment: DialogFragment() {
 

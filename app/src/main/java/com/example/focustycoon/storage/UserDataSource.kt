@@ -12,7 +12,6 @@ private const val CAPACITY_LEVEL_KEY = "duration_level"
 private const val START_TIME_KEY = "start_time"
 private const val CURRENT_DURATION_KEY = "current_duration"
 
-private const val TAG = "UserDataSource"
 private const val BASE_COST: Int = 100
 private const val BASE_COST_CAPACITY: Int = 10
 

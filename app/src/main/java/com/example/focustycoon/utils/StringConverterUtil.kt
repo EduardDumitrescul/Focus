@@ -1,6 +1,6 @@
-package com.example.focustycoon.utils
+@file:Suppress("unused")
 
-private const val TAG = "StringConverterUtil"
+package com.example.focustycoon.utils
 
 class StringConverterUtil {
     companion object {
@@ -12,8 +12,6 @@ class StringConverterUtil {
 
             return toString(value.toLong())
         }
-
-        fun toString(value: Int) = toString(value.toLong())
 
         fun toString(value: Long): String {
             val billion = 1000000000L

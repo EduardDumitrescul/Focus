@@ -3,11 +3,8 @@ package com.example.focustycoon
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import com.example.focustycoon.dagger.AppComponent
 import com.example.focustycoon.dagger.DaggerAppComponent
-
-private const val TAG = "MainApplication"
 
 class MainApplication: Application() {
 

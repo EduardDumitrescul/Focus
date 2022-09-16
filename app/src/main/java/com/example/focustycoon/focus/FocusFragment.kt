@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,8 +23,6 @@ import com.example.focustycoon.settings.GlobalSettings
 import com.example.focustycoon.settings.SettingsActivity
 import com.example.focustycoon.utils.StringConverterUtil
 import javax.inject.Inject
-
-private const val TAG = "FocusFragment"
 
 class FocusFragment: Fragment(), CircularSeekBar.OnChangeListener {
     private lateinit var binding: FragmentFocusBinding

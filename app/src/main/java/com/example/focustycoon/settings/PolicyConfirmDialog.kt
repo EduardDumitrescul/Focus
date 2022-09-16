@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
-import com.example.focustycoon.MainActivity
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.DialogPolicyConfirmBinding

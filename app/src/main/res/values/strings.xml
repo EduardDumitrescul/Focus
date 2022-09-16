@@ -18,7 +18,7 @@
     <string name="max">Max</string>
     <string name="cancel_with_timer"> Cancel (%1$d)</string>
 
-    <string name="cancel_message">Noooo! But you can try again.</string>
+    <string name="cancel_message">Noooo! You can try again later.</string>
     <string name="earning_message">Nice! You just earned %1$d Focus Tokens</string>
     <string name="working_message">Keep up the great work!\nJust Focus!</string>
     <string name="starting_work_message">Great!\nNow close your phone and start focusing.</string>

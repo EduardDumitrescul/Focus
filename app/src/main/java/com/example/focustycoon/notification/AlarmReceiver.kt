@@ -5,9 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -16,6 +14,7 @@ import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 
 class AlarmReceiver: BroadcastReceiver() {
+    @Suppress("ControlFlowWithEmptyBody")
     override fun onReceive(context: Context?, intent: Intent?) {
         if((Intent.ACTION_BOOT_COMPLETED) == intent?.action) {
 

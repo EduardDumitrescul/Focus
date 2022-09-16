@@ -1,18 +1,10 @@
 package com.example.focustycoon.settings
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.text.BoringLayout
-import android.util.AttributeSet
-import android.view.LayoutInflater
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import com.example.focustycoon.MainApplication
 import com.example.focustycoon.R
 import com.example.focustycoon.databinding.ActivitySettingsBinding

@@ -7,13 +7,10 @@ import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.focustycoon.storage.UserDataSource
 import javax.inject.Inject
 
-
-private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
